@@ -10,35 +10,37 @@
 
 namespace Microsoft.Azure.Management.Monitor.Models
 {
-    using Microsoft.Rest;
-    using Microsoft.Rest.Azure;
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
     /// An azure resource object
     /// </summary>
-    public partial class ProxyResource : IResource
+    public partial class PrivateLinkProxyResource
     {
         /// <summary>
-        /// Initializes a new instance of the ProxyResource class.
+        /// Initializes a new instance of the PrivateLinkProxyResource class.
         /// </summary>
-        public ProxyResource()
+        public PrivateLinkProxyResource()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the ProxyResource class.
+        /// Initializes a new instance of the PrivateLinkProxyResource class.
         /// </summary>
         /// <param name="id">Azure resource Id</param>
         /// <param name="name">Azure resource name</param>
         /// <param name="type">Azure resource type</param>
-        public ProxyResource(string id = default(string), string name = default(string), string type = default(string))
+        /// <param name="tags">azure resource tags</param>
+        public PrivateLinkProxyResource(string id = default(string), string name = default(string), string type = default(string), IDictionary<string, string> tags = default(IDictionary<string, string>))
         {
             Id = id;
             Name = name;
             Type = type;
+            Tags = tags;
             CustomInit();
         }
 
@@ -64,6 +66,12 @@ namespace Microsoft.Azure.Management.Monitor.Models
         /// </summary>
         [JsonProperty(PropertyName = "type")]
         public string Type { get; private set; }
+
+        /// <summary>
+        /// Gets or sets azure resource tags
+        /// </summary>
+        [JsonProperty(PropertyName = "tags")]
+        public IDictionary<string, string> Tags { get; set; }
 
     }
 }

@@ -82,11 +82,12 @@ namespace Microsoft.Azure.Management.Monitor
             /// <param name='name'>
             /// The name of the scoped resource object.
             /// </param>
-            /// <param name='parameters'>
+            /// <param name='linkedResourceId'>
+            /// The resource id of the scoped Azure monitor resource.
             /// </param>
-            public static ScopedResource CreateOrUpdate(this IPrivateLinkScopedResourcesOperations operations, string resourceGroupName, string scopeName, string name, ScopedResource parameters)
+            public static ScopedResource CreateOrUpdate(this IPrivateLinkScopedResourcesOperations operations, string resourceGroupName, string scopeName, string name, string linkedResourceId = default(string))
             {
-                return operations.CreateOrUpdateAsync(resourceGroupName, scopeName, name, parameters).GetAwaiter().GetResult();
+                return operations.CreateOrUpdateAsync(resourceGroupName, scopeName, name, linkedResourceId).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -104,14 +105,15 @@ namespace Microsoft.Azure.Management.Monitor
             /// <param name='name'>
             /// The name of the scoped resource object.
             /// </param>
-            /// <param name='parameters'>
+            /// <param name='linkedResourceId'>
+            /// The resource id of the scoped Azure monitor resource.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ScopedResource> CreateOrUpdateAsync(this IPrivateLinkScopedResourcesOperations operations, string resourceGroupName, string scopeName, string name, ScopedResource parameters, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ScopedResource> CreateOrUpdateAsync(this IPrivateLinkScopedResourcesOperations operations, string resourceGroupName, string scopeName, string name, string linkedResourceId = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.CreateOrUpdateWithHttpMessagesAsync(resourceGroupName, scopeName, name, parameters, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.CreateOrUpdateWithHttpMessagesAsync(resourceGroupName, scopeName, name, linkedResourceId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -215,11 +217,12 @@ namespace Microsoft.Azure.Management.Monitor
             /// <param name='name'>
             /// The name of the scoped resource object.
             /// </param>
-            /// <param name='parameters'>
+            /// <param name='linkedResourceId'>
+            /// The resource id of the scoped Azure monitor resource.
             /// </param>
-            public static ScopedResource BeginCreateOrUpdate(this IPrivateLinkScopedResourcesOperations operations, string resourceGroupName, string scopeName, string name, ScopedResource parameters)
+            public static ScopedResource BeginCreateOrUpdate(this IPrivateLinkScopedResourcesOperations operations, string resourceGroupName, string scopeName, string name, string linkedResourceId = default(string))
             {
-                return operations.BeginCreateOrUpdateAsync(resourceGroupName, scopeName, name, parameters).GetAwaiter().GetResult();
+                return operations.BeginCreateOrUpdateAsync(resourceGroupName, scopeName, name, linkedResourceId).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -237,14 +240,15 @@ namespace Microsoft.Azure.Management.Monitor
             /// <param name='name'>
             /// The name of the scoped resource object.
             /// </param>
-            /// <param name='parameters'>
+            /// <param name='linkedResourceId'>
+            /// The resource id of the scoped Azure monitor resource.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ScopedResource> BeginCreateOrUpdateAsync(this IPrivateLinkScopedResourcesOperations operations, string resourceGroupName, string scopeName, string name, ScopedResource parameters, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ScopedResource> BeginCreateOrUpdateAsync(this IPrivateLinkScopedResourcesOperations operations, string resourceGroupName, string scopeName, string name, string linkedResourceId = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.BeginCreateOrUpdateWithHttpMessagesAsync(resourceGroupName, scopeName, name, parameters, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.BeginCreateOrUpdateWithHttpMessagesAsync(resourceGroupName, scopeName, name, linkedResourceId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

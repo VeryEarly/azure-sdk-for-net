@@ -48,16 +48,5 @@ namespace Microsoft.Azure.Management.Monitor
               }.AsEnumerable();
           }
       }
-      // BEGIN: Code Generation Metadata Section
-      public static readonly String AutoRestVersion = "2.0.4413";
-      public static readonly String AutoRestBootStrapperVersion = "autorest@2.0.4413";
-      public static readonly String AutoRestCmdExecuted = "cmd.exe /c autorest.cmd C:\\Users\\yabhu\\Documents\\workspace\\azure-rest-api-specs\\specification\\monitor\\resource-manager\\readme.md --csharp --version=2.0.4413 --reflect-api-versions --csharp.output-folder=C:\\Users\\yabhu\\Documents\\workspace\\azure-sdk-for-net\\sdk\\monitor\\Microsoft.Azure.Management.Monitor\\src\\Generated";
-      public static readonly String GithubForkName = "Azure";
-      public static readonly String GithubBranchName = "master";
-      public static readonly String GithubCommidId = "db2fc9ee7ba6b51ed51927ac3e722b616b9a23c6";
-      public static readonly String CodeGenerationErrors = "";
-      public static readonly String GithubRepoName = "azure-rest-api-specs";
-      // END: Code Generation Metadata Section
   }
 }
-
