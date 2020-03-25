@@ -38,7 +38,7 @@ namespace Microsoft.Azure.Management.Monitor.Models
         /// <param name="status">The status of the operation.</param>
         /// <param name="error">The error detail of the operation if
         /// any.</param>
-        public OperationStatus(string id = default(string), string name = default(string), System.DateTime? startTime = default(System.DateTime?), System.DateTime? endTime = default(System.DateTime?), string status = default(string), ErrorResponse error = default(ErrorResponse))
+        public OperationStatus(string id = default(string), string name = default(string), System.DateTime? startTime = default(System.DateTime?), System.DateTime? endTime = default(System.DateTime?), string status = default(string), ErrorResponseCommon error = default(ErrorResponseCommon))
         {
             Id = id;
             Name = name;
@@ -88,7 +88,7 @@ namespace Microsoft.Azure.Management.Monitor.Models
         /// Gets or sets the error detail of the operation if any.
         /// </summary>
         [JsonProperty(PropertyName = "error")]
-        public ErrorResponse Error { get; set; }
+        public ErrorResponseCommon Error { get; set; }
 
     }
 }
