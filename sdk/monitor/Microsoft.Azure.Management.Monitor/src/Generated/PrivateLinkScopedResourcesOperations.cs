@@ -265,8 +265,7 @@ namespace Microsoft.Azure.Management.Monitor
         /// <param name='name'>
         /// The name of the scoped resource object.
         /// </param>
-        /// <param name='linkedResourceId'>
-        /// The resource id of the scoped Azure monitor resource.
+        /// <param name='parameters'>
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -274,10 +273,10 @@ namespace Microsoft.Azure.Management.Monitor
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public async Task<AzureOperationResponse<ScopedResource>> CreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, string scopeName, string name, string linkedResourceId = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<ScopedResource>> CreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, string scopeName, string name, ScopedResource parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Send Request
-            AzureOperationResponse<ScopedResource> _response = await BeginCreateOrUpdateWithHttpMessagesAsync(resourceGroupName, scopeName, name, linkedResourceId, customHeaders, cancellationToken).ConfigureAwait(false);
+            AzureOperationResponse<ScopedResource> _response = await BeginCreateOrUpdateWithHttpMessagesAsync(resourceGroupName, scopeName, name, parameters, customHeaders, cancellationToken).ConfigureAwait(false);
             return await Client.GetPutOrPatchOperationResultAsync(_response, customHeaders, cancellationToken).ConfigureAwait(false);
         }
 
@@ -512,8 +511,7 @@ namespace Microsoft.Azure.Management.Monitor
         /// <param name='name'>
         /// The name of the scoped resource object.
         /// </param>
-        /// <param name='linkedResourceId'>
-        /// The resource id of the scoped Azure monitor resource.
+        /// <param name='parameters'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -536,7 +534,7 @@ namespace Microsoft.Azure.Management.Monitor
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<ScopedResource>> BeginCreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, string scopeName, string name, string linkedResourceId = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<ScopedResource>> BeginCreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, string scopeName, string name, ScopedResource parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (Client.SubscriptionId == null)
             {
@@ -554,12 +552,11 @@ namespace Microsoft.Azure.Management.Monitor
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "name");
             }
-            string apiVersion = "2019-10-17-preview";
-            ScopedResource parameters = new ScopedResource();
-            if (linkedResourceId != null)
+            if (parameters == null)
             {
-                parameters.LinkedResourceId = linkedResourceId;
+                throw new ValidationException(ValidationRules.CannotBeNull, "parameters");
             }
+            string apiVersion = "2019-10-17-preview";
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;

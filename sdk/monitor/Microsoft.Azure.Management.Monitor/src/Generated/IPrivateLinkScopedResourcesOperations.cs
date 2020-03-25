@@ -65,8 +65,7 @@ namespace Microsoft.Azure.Management.Monitor
         /// <param name='name'>
         /// The name of the scoped resource object.
         /// </param>
-        /// <param name='linkedResourceId'>
-        /// The resource id of the scoped Azure monitor resource.
+        /// <param name='parameters'>
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -83,7 +82,7 @@ namespace Microsoft.Azure.Management.Monitor
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<ScopedResource>> CreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, string scopeName, string name, string linkedResourceId = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<ScopedResource>> CreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, string scopeName, string name, ScopedResource parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes a private endpoint connection with a given name.
         /// </summary>
@@ -149,8 +148,7 @@ namespace Microsoft.Azure.Management.Monitor
         /// <param name='name'>
         /// The name of the scoped resource object.
         /// </param>
-        /// <param name='linkedResourceId'>
-        /// The resource id of the scoped Azure monitor resource.
+        /// <param name='parameters'>
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -167,7 +165,7 @@ namespace Microsoft.Azure.Management.Monitor
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<AzureOperationResponse<ScopedResource>> BeginCreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, string scopeName, string name, string linkedResourceId = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<ScopedResource>> BeginCreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, string scopeName, string name, ScopedResource parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes a private endpoint connection with a given name.
         /// </summary>
