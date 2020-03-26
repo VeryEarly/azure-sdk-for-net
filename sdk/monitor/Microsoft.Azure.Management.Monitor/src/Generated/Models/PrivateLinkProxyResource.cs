@@ -11,8 +11,6 @@
 namespace Microsoft.Azure.Management.Monitor.Models
 {
     using Newtonsoft.Json;
-    using System.Collections;
-    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
@@ -34,13 +32,11 @@ namespace Microsoft.Azure.Management.Monitor.Models
         /// <param name="id">Azure resource Id</param>
         /// <param name="name">Azure resource name</param>
         /// <param name="type">Azure resource type</param>
-        /// <param name="tags">azure resource tags</param>
-        public PrivateLinkProxyResource(string id = default(string), string name = default(string), string type = default(string), IDictionary<string, string> tags = default(IDictionary<string, string>))
+        public PrivateLinkProxyResource(string id = default(string), string name = default(string), string type = default(string))
         {
             Id = id;
             Name = name;
             Type = type;
-            Tags = tags;
             CustomInit();
         }
 
@@ -66,12 +62,6 @@ namespace Microsoft.Azure.Management.Monitor.Models
         /// </summary>
         [JsonProperty(PropertyName = "type")]
         public string Type { get; private set; }
-
-        /// <summary>
-        /// Gets or sets azure resource tags
-        /// </summary>
-        [JsonProperty(PropertyName = "tags")]
-        public IDictionary<string, string> Tags { get; set; }
 
     }
 }

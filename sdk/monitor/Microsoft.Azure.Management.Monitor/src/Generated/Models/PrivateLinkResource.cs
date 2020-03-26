@@ -37,12 +37,11 @@ namespace Microsoft.Azure.Management.Monitor.Models
         /// <param name="id">Azure resource Id</param>
         /// <param name="name">Azure resource name</param>
         /// <param name="type">Azure resource type</param>
-        /// <param name="tags">azure resource tags</param>
         /// <param name="groupId">The private link resource group id.</param>
         /// <param name="requiredMembers">The private link resource required
         /// member names.</param>
-        public PrivateLinkResource(string id = default(string), string name = default(string), string type = default(string), IDictionary<string, string> tags = default(IDictionary<string, string>), string groupId = default(string), IList<string> requiredMembers = default(IList<string>))
-            : base(id, name, type, tags)
+        public PrivateLinkResource(string id = default(string), string name = default(string), string type = default(string), string groupId = default(string), IList<string> requiredMembers = default(IList<string>))
+            : base(id, name, type)
         {
             GroupId = groupId;
             RequiredMembers = requiredMembers;
