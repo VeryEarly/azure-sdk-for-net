@@ -28,11 +28,10 @@ namespace Microsoft.Azure.Management.Monitor
         /// Monitor PrivateLinkScope.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </param>
         /// <param name='scopeName'>
-        /// Name of the Azure Monitor PrivateLinkScope that will contain the
-        /// datasource
+        /// The name of the Azure Monitor PrivateLinkScope resource.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -55,11 +54,10 @@ namespace Microsoft.Azure.Management.Monitor
         /// Monitor PrivateLinkScope.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </param>
         /// <param name='scopeName'>
-        /// Name of the Azure Monitor PrivateLinkScope that will contain the
-        /// datasource
+        /// The name of the Azure Monitor PrivateLinkScope resource.
         /// </param>
         /// <param name='groupName'>
         /// The name of the private link resource.

@@ -28,10 +28,10 @@ namespace Microsoft.Azure.Management.Monitor
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='scopeName'>
-            /// Name of the Azure Monitor PrivateLinkScope that will contain the datasource
+            /// The name of the Azure Monitor PrivateLinkScope resource.
             /// </param>
             /// <param name='privateEndpointConnectionName'>
             /// The name of the private endpoint connection.
@@ -48,10 +48,10 @@ namespace Microsoft.Azure.Management.Monitor
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='scopeName'>
-            /// Name of the Azure Monitor PrivateLinkScope that will contain the datasource
+            /// The name of the Azure Monitor PrivateLinkScope resource.
             /// </param>
             /// <param name='privateEndpointConnectionName'>
             /// The name of the private endpoint connection.
@@ -74,10 +74,10 @@ namespace Microsoft.Azure.Management.Monitor
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='scopeName'>
-            /// Name of the Azure Monitor PrivateLinkScope that will contain the datasource
+            /// The name of the Azure Monitor PrivateLinkScope resource.
             /// </param>
             /// <param name='privateEndpointConnectionName'>
             /// The name of the private endpoint connection.
@@ -96,10 +96,10 @@ namespace Microsoft.Azure.Management.Monitor
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='scopeName'>
-            /// Name of the Azure Monitor PrivateLinkScope that will contain the datasource
+            /// The name of the Azure Monitor PrivateLinkScope resource.
             /// </param>
             /// <param name='privateEndpointConnectionName'>
             /// The name of the private endpoint connection.
@@ -124,10 +124,10 @@ namespace Microsoft.Azure.Management.Monitor
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='scopeName'>
-            /// Name of the Azure Monitor PrivateLinkScope that will contain the datasource
+            /// The name of the Azure Monitor PrivateLinkScope resource.
             /// </param>
             /// <param name='privateEndpointConnectionName'>
             /// The name of the private endpoint connection.
@@ -144,10 +144,10 @@ namespace Microsoft.Azure.Management.Monitor
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='scopeName'>
-            /// Name of the Azure Monitor PrivateLinkScope that will contain the datasource
+            /// The name of the Azure Monitor PrivateLinkScope resource.
             /// </param>
             /// <param name='privateEndpointConnectionName'>
             /// The name of the private endpoint connection.
@@ -167,10 +167,10 @@ namespace Microsoft.Azure.Management.Monitor
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='scopeName'>
-            /// Name of the Azure Monitor PrivateLinkScope that will contain the datasource
+            /// The name of the Azure Monitor PrivateLinkScope resource.
             /// </param>
             public static IPage<PrivateEndpointConnection> ListByPrivateLinkScope(this IPrivateEndpointConnectionsOperations operations, string resourceGroupName, string scopeName)
             {
@@ -184,10 +184,10 @@ namespace Microsoft.Azure.Management.Monitor
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='scopeName'>
-            /// Name of the Azure Monitor PrivateLinkScope that will contain the datasource
+            /// The name of the Azure Monitor PrivateLinkScope resource.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -207,10 +207,10 @@ namespace Microsoft.Azure.Management.Monitor
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='scopeName'>
-            /// Name of the Azure Monitor PrivateLinkScope that will contain the datasource
+            /// The name of the Azure Monitor PrivateLinkScope resource.
             /// </param>
             /// <param name='privateEndpointConnectionName'>
             /// The name of the private endpoint connection.
@@ -229,10 +229,10 @@ namespace Microsoft.Azure.Management.Monitor
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='scopeName'>
-            /// Name of the Azure Monitor PrivateLinkScope that will contain the datasource
+            /// The name of the Azure Monitor PrivateLinkScope resource.
             /// </param>
             /// <param name='privateEndpointConnectionName'>
             /// The name of the private endpoint connection.
@@ -257,10 +257,10 @@ namespace Microsoft.Azure.Management.Monitor
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='scopeName'>
-            /// Name of the Azure Monitor PrivateLinkScope that will contain the datasource
+            /// The name of the Azure Monitor PrivateLinkScope resource.
             /// </param>
             /// <param name='privateEndpointConnectionName'>
             /// The name of the private endpoint connection.
@@ -277,10 +277,10 @@ namespace Microsoft.Azure.Management.Monitor
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group.
+            /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='scopeName'>
-            /// Name of the Azure Monitor PrivateLinkScope that will contain the datasource
+            /// The name of the Azure Monitor PrivateLinkScope resource.
             /// </param>
             /// <param name='privateEndpointConnectionName'>
             /// The name of the private endpoint connection.

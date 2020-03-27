@@ -41,7 +41,7 @@ namespace Microsoft.Azure.Management.Monitor
         ServiceClientCredentials Credentials { get; }
 
         /// <summary>
-        /// The Azure subscription Id.
+        /// The ID of the target subscription.
         /// </summary>
         string SubscriptionId { get; set; }
 

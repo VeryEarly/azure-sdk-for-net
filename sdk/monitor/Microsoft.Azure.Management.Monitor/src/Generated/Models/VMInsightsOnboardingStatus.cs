@@ -46,9 +46,12 @@ namespace Microsoft.Azure.Management.Monitor.Models
         /// information about the data containers to which data for the
         /// specified resource is being routed. Possible values include:
         /// 'present', 'notPresent'</param>
-        /// <param name="id">Azure resource Id</param>
-        /// <param name="name">Azure resource name</param>
-        /// <param name="type">Azure resource type</param>
+        /// <param name="id">Fully qualified resource Id for the resource. Ex -
+        /// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}</param>
+        /// <param name="name">The name of the resource</param>
+        /// <param name="type">The type of the resource. Ex-
+        /// Microsoft.Compute/virtualMachines or
+        /// Microsoft.Storage/storageAccounts.</param>
         /// <param name="data">Containers that currently store VM Insights data
         /// for the specified resource.</param>
         public VMInsightsOnboardingStatus(string resourceId, string onboardingStatus, string dataStatus, string id = default(string), string name = default(string), string type = default(string), IList<DataContainer> data = default(IList<DataContainer>))

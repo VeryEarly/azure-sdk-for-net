@@ -21,7 +21,7 @@ namespace Microsoft.Azure.Management.Monitor.Models
     /// An Azure Monitor PrivateLinkScope definition.
     /// </summary>
     [Rest.Serialization.JsonTransformation]
-    public partial class AzureMonitorPrivateLinkScope : PrivateLinkScopesResource
+    public partial class AzureMonitorPrivateLinkScope : TrackedResource
     {
         /// <summary>
         /// Initializes a new instance of the AzureMonitorPrivateLinkScope
@@ -36,20 +36,27 @@ namespace Microsoft.Azure.Management.Monitor.Models
         /// Initializes a new instance of the AzureMonitorPrivateLinkScope
         /// class.
         /// </summary>
-        /// <param name="location">Resource location</param>
-        /// <param name="id">Azure resource Id</param>
-        /// <param name="name">Azure resource name</param>
-        /// <param name="type">Azure resource type</param>
-        /// <param name="tags">Resource tags</param>
+        /// <param name="location">The geo-location where the resource
+        /// lives</param>
+        /// <param name="id">Fully qualified resource Id for the resource. Ex -
+        /// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}</param>
+        /// <param name="name">The name of the resource</param>
+        /// <param name="type">The type of the resource. Ex-
+        /// Microsoft.Compute/virtualMachines or
+        /// Microsoft.Storage/storageAccounts.</param>
+        /// <param name="tags">Resource tags.</param>
         /// <param name="provisioningState">Current state of this
         /// PrivateLinkScope: whether or not is has been provisioned within the
         /// resource group it is defined. Users cannot change this value but
         /// are able to read from it. Values will include Provisioning
         /// ,Succeeded, Canceled and Failed.</param>
-        public AzureMonitorPrivateLinkScope(string location, string id = default(string), string name = default(string), string type = default(string), IDictionary<string, string> tags = default(IDictionary<string, string>), string provisioningState = default(string))
+        /// <param name="privateEndpointConnections">List of private endpoint
+        /// connections.</param>
+        public AzureMonitorPrivateLinkScope(string location, string id = default(string), string name = default(string), string type = default(string), IDictionary<string, string> tags = default(IDictionary<string, string>), string provisioningState = default(string), IList<PrivateEndpointConnection> privateEndpointConnections = default(IList<PrivateEndpointConnection>))
             : base(location, id, name, type, tags)
         {
             ProvisioningState = provisioningState;
+            PrivateEndpointConnections = privateEndpointConnections;
             CustomInit();
         }
 
@@ -68,6 +75,12 @@ namespace Microsoft.Azure.Management.Monitor.Models
         public string ProvisioningState { get; private set; }
 
         /// <summary>
+        /// Gets list of private endpoint connections.
+        /// </summary>
+        [JsonProperty(PropertyName = "properties.privateEndpointConnections")]
+        public IList<PrivateEndpointConnection> PrivateEndpointConnections { get; private set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -76,6 +89,16 @@ namespace Microsoft.Azure.Management.Monitor.Models
         public override void Validate()
         {
             base.Validate();
+            if (PrivateEndpointConnections != null)
+            {
+                foreach (var element in PrivateEndpointConnections)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
+            }
         }
     }
 }

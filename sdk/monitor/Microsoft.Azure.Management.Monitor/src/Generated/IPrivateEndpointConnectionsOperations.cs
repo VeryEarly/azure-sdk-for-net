@@ -27,11 +27,10 @@ namespace Microsoft.Azure.Management.Monitor
         /// Gets a private endpoint connection.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </param>
         /// <param name='scopeName'>
-        /// Name of the Azure Monitor PrivateLinkScope that will contain the
-        /// datasource
+        /// The name of the Azure Monitor PrivateLinkScope resource.
         /// </param>
         /// <param name='privateEndpointConnectionName'>
         /// The name of the private endpoint connection.
@@ -56,11 +55,10 @@ namespace Microsoft.Azure.Management.Monitor
         /// Approve or reject a private endpoint connection with a given name.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </param>
         /// <param name='scopeName'>
-        /// Name of the Azure Monitor PrivateLinkScope that will contain the
-        /// datasource
+        /// The name of the Azure Monitor PrivateLinkScope resource.
         /// </param>
         /// <param name='privateEndpointConnectionName'>
         /// The name of the private endpoint connection.
@@ -87,11 +85,10 @@ namespace Microsoft.Azure.Management.Monitor
         /// Deletes a private endpoint connection with a given name.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </param>
         /// <param name='scopeName'>
-        /// Name of the Azure Monitor PrivateLinkScope that will contain the
-        /// datasource
+        /// The name of the Azure Monitor PrivateLinkScope resource.
         /// </param>
         /// <param name='privateEndpointConnectionName'>
         /// The name of the private endpoint connection.
@@ -113,11 +110,10 @@ namespace Microsoft.Azure.Management.Monitor
         /// Gets all private endpoint connections on a private link scope.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </param>
         /// <param name='scopeName'>
-        /// Name of the Azure Monitor PrivateLinkScope that will contain the
-        /// datasource
+        /// The name of the Azure Monitor PrivateLinkScope resource.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -139,11 +135,10 @@ namespace Microsoft.Azure.Management.Monitor
         /// Approve or reject a private endpoint connection with a given name.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </param>
         /// <param name='scopeName'>
-        /// Name of the Azure Monitor PrivateLinkScope that will contain the
-        /// datasource
+        /// The name of the Azure Monitor PrivateLinkScope resource.
         /// </param>
         /// <param name='privateEndpointConnectionName'>
         /// The name of the private endpoint connection.
@@ -170,11 +165,10 @@ namespace Microsoft.Azure.Management.Monitor
         /// Deletes a private endpoint connection with a given name.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </param>
         /// <param name='scopeName'>
-        /// Name of the Azure Monitor PrivateLinkScope that will contain the
-        /// datasource
+        /// The name of the Azure Monitor PrivateLinkScope resource.
         /// </param>
         /// <param name='privateEndpointConnectionName'>
         /// The name of the private endpoint connection.
