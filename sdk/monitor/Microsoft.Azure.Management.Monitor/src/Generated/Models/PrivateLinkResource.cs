@@ -21,7 +21,7 @@ namespace Microsoft.Azure.Management.Monitor.Models
     /// A private link resource
     /// </summary>
     [Rest.Serialization.JsonTransformation]
-    public partial class PrivateLinkResource : PrivateLinkProxyResource
+    public partial class PrivateLinkResource : ProxyResource
     {
         /// <summary>
         /// Initializes a new instance of the PrivateLinkResource class.
