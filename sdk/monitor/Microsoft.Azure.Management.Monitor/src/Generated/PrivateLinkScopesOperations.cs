@@ -80,13 +80,6 @@ namespace Microsoft.Azure.Management.Monitor
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "this.Client.SubscriptionId");
             }
-            if (Client.SubscriptionId != null)
-            {
-                if (Client.SubscriptionId.Length < 1)
-                {
-                    throw new ValidationException(ValidationRules.MinLength, "Client.SubscriptionId", 1);
-                }
-            }
             string apiVersion = "2019-10-17-preview";
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -232,7 +225,7 @@ namespace Microsoft.Azure.Management.Monitor
         /// Gets a list of Azure Monitor PrivateLinkScopes within a resource group.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group. The name is case insensitive.
+        /// The name of the resource group.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -261,31 +254,9 @@ namespace Microsoft.Azure.Management.Monitor
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "resourceGroupName");
             }
-            if (resourceGroupName != null)
-            {
-                if (resourceGroupName.Length > 90)
-                {
-                    throw new ValidationException(ValidationRules.MaxLength, "resourceGroupName", 90);
-                }
-                if (resourceGroupName.Length < 1)
-                {
-                    throw new ValidationException(ValidationRules.MinLength, "resourceGroupName", 1);
-                }
-                if (!System.Text.RegularExpressions.Regex.IsMatch(resourceGroupName, "^[-\\w\\._\\(\\)]+$"))
-                {
-                    throw new ValidationException(ValidationRules.Pattern, "resourceGroupName", "^[-\\w\\._\\(\\)]+$");
-                }
-            }
             if (Client.SubscriptionId == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "this.Client.SubscriptionId");
-            }
-            if (Client.SubscriptionId != null)
-            {
-                if (Client.SubscriptionId.Length < 1)
-                {
-                    throw new ValidationException(ValidationRules.MinLength, "Client.SubscriptionId", 1);
-                }
             }
             string apiVersion = "2019-10-17-preview";
             // Tracing
@@ -434,7 +405,7 @@ namespace Microsoft.Azure.Management.Monitor
         /// Deletes a Azure Monitor PrivateLinkScope.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group. The name is case insensitive.
+        /// The name of the resource group.
         /// </param>
         /// <param name='scopeName'>
         /// The name of the Azure Monitor PrivateLinkScope resource.
@@ -456,7 +427,7 @@ namespace Microsoft.Azure.Management.Monitor
         /// Returns a Azure Monitor PrivateLinkScope.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group. The name is case insensitive.
+        /// The name of the resource group.
         /// </param>
         /// <param name='scopeName'>
         /// The name of the Azure Monitor PrivateLinkScope resource.
@@ -488,31 +459,9 @@ namespace Microsoft.Azure.Management.Monitor
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "resourceGroupName");
             }
-            if (resourceGroupName != null)
-            {
-                if (resourceGroupName.Length > 90)
-                {
-                    throw new ValidationException(ValidationRules.MaxLength, "resourceGroupName", 90);
-                }
-                if (resourceGroupName.Length < 1)
-                {
-                    throw new ValidationException(ValidationRules.MinLength, "resourceGroupName", 1);
-                }
-                if (!System.Text.RegularExpressions.Regex.IsMatch(resourceGroupName, "^[-\\w\\._\\(\\)]+$"))
-                {
-                    throw new ValidationException(ValidationRules.Pattern, "resourceGroupName", "^[-\\w\\._\\(\\)]+$");
-                }
-            }
             if (Client.SubscriptionId == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "this.Client.SubscriptionId");
-            }
-            if (Client.SubscriptionId != null)
-            {
-                if (Client.SubscriptionId.Length < 1)
-                {
-                    throw new ValidationException(ValidationRules.MinLength, "Client.SubscriptionId", 1);
-                }
             }
             if (scopeName == null)
             {
@@ -669,7 +618,7 @@ namespace Microsoft.Azure.Management.Monitor
         /// operation.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group. The name is case insensitive.
+        /// The name of the resource group.
         /// </param>
         /// <param name='scopeName'>
         /// The name of the Azure Monitor PrivateLinkScope resource.
@@ -705,31 +654,9 @@ namespace Microsoft.Azure.Management.Monitor
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "resourceGroupName");
             }
-            if (resourceGroupName != null)
-            {
-                if (resourceGroupName.Length > 90)
-                {
-                    throw new ValidationException(ValidationRules.MaxLength, "resourceGroupName", 90);
-                }
-                if (resourceGroupName.Length < 1)
-                {
-                    throw new ValidationException(ValidationRules.MinLength, "resourceGroupName", 1);
-                }
-                if (!System.Text.RegularExpressions.Regex.IsMatch(resourceGroupName, "^[-\\w\\._\\(\\)]+$"))
-                {
-                    throw new ValidationException(ValidationRules.Pattern, "resourceGroupName", "^[-\\w\\._\\(\\)]+$");
-                }
-            }
             if (Client.SubscriptionId == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "this.Client.SubscriptionId");
-            }
-            if (Client.SubscriptionId != null)
-            {
-                if (Client.SubscriptionId.Length < 1)
-                {
-                    throw new ValidationException(ValidationRules.MinLength, "Client.SubscriptionId", 1);
-                }
             }
             if (scopeName == null)
             {
@@ -918,7 +845,7 @@ namespace Microsoft.Azure.Management.Monitor
         /// CreateOrUpdate method.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group. The name is case insensitive.
+        /// The name of the resource group.
         /// </param>
         /// <param name='scopeName'>
         /// The name of the Azure Monitor PrivateLinkScope resource.
@@ -953,31 +880,9 @@ namespace Microsoft.Azure.Management.Monitor
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "resourceGroupName");
             }
-            if (resourceGroupName != null)
-            {
-                if (resourceGroupName.Length > 90)
-                {
-                    throw new ValidationException(ValidationRules.MaxLength, "resourceGroupName", 90);
-                }
-                if (resourceGroupName.Length < 1)
-                {
-                    throw new ValidationException(ValidationRules.MinLength, "resourceGroupName", 1);
-                }
-                if (!System.Text.RegularExpressions.Regex.IsMatch(resourceGroupName, "^[-\\w\\._\\(\\)]+$"))
-                {
-                    throw new ValidationException(ValidationRules.Pattern, "resourceGroupName", "^[-\\w\\._\\(\\)]+$");
-                }
-            }
             if (Client.SubscriptionId == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "this.Client.SubscriptionId");
-            }
-            if (Client.SubscriptionId != null)
-            {
-                if (Client.SubscriptionId.Length < 1)
-                {
-                    throw new ValidationException(ValidationRules.MinLength, "Client.SubscriptionId", 1);
-                }
             }
             if (scopeName == null)
             {
@@ -1144,7 +1049,7 @@ namespace Microsoft.Azure.Management.Monitor
         /// Deletes a Azure Monitor PrivateLinkScope.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group. The name is case insensitive.
+        /// The name of the resource group.
         /// </param>
         /// <param name='scopeName'>
         /// The name of the Azure Monitor PrivateLinkScope resource.
@@ -1173,31 +1078,9 @@ namespace Microsoft.Azure.Management.Monitor
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "resourceGroupName");
             }
-            if (resourceGroupName != null)
-            {
-                if (resourceGroupName.Length > 90)
-                {
-                    throw new ValidationException(ValidationRules.MaxLength, "resourceGroupName", 90);
-                }
-                if (resourceGroupName.Length < 1)
-                {
-                    throw new ValidationException(ValidationRules.MinLength, "resourceGroupName", 1);
-                }
-                if (!System.Text.RegularExpressions.Regex.IsMatch(resourceGroupName, "^[-\\w\\._\\(\\)]+$"))
-                {
-                    throw new ValidationException(ValidationRules.Pattern, "resourceGroupName", "^[-\\w\\._\\(\\)]+$");
-                }
-            }
             if (Client.SubscriptionId == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "this.Client.SubscriptionId");
-            }
-            if (Client.SubscriptionId != null)
-            {
-                if (Client.SubscriptionId.Length < 1)
-                {
-                    throw new ValidationException(ValidationRules.MinLength, "Client.SubscriptionId", 1);
-                }
             }
             if (scopeName == null)
             {

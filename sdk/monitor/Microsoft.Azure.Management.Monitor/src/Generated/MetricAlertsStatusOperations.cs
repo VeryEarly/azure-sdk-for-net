@@ -54,7 +54,7 @@ namespace Microsoft.Azure.Management.Monitor
         /// Retrieve an alert rule status.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group. The name is case insensitive.
+        /// The name of the resource group.
         /// </param>
         /// <param name='ruleName'>
         /// The name of the rule.
@@ -86,31 +86,9 @@ namespace Microsoft.Azure.Management.Monitor
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "this.Client.SubscriptionId");
             }
-            if (Client.SubscriptionId != null)
-            {
-                if (Client.SubscriptionId.Length < 1)
-                {
-                    throw new ValidationException(ValidationRules.MinLength, "Client.SubscriptionId", 1);
-                }
-            }
             if (resourceGroupName == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "resourceGroupName");
-            }
-            if (resourceGroupName != null)
-            {
-                if (resourceGroupName.Length > 90)
-                {
-                    throw new ValidationException(ValidationRules.MaxLength, "resourceGroupName", 90);
-                }
-                if (resourceGroupName.Length < 1)
-                {
-                    throw new ValidationException(ValidationRules.MinLength, "resourceGroupName", 1);
-                }
-                if (!System.Text.RegularExpressions.Regex.IsMatch(resourceGroupName, "^[-\\w\\._\\(\\)]+$"))
-                {
-                    throw new ValidationException(ValidationRules.Pattern, "resourceGroupName", "^[-\\w\\._\\(\\)]+$");
-                }
             }
             if (ruleName == null)
             {
@@ -265,7 +243,7 @@ namespace Microsoft.Azure.Management.Monitor
         /// Retrieve an alert rule status.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group. The name is case insensitive.
+        /// The name of the resource group.
         /// </param>
         /// <param name='ruleName'>
         /// The name of the rule.
@@ -300,31 +278,9 @@ namespace Microsoft.Azure.Management.Monitor
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "this.Client.SubscriptionId");
             }
-            if (Client.SubscriptionId != null)
-            {
-                if (Client.SubscriptionId.Length < 1)
-                {
-                    throw new ValidationException(ValidationRules.MinLength, "Client.SubscriptionId", 1);
-                }
-            }
             if (resourceGroupName == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "resourceGroupName");
-            }
-            if (resourceGroupName != null)
-            {
-                if (resourceGroupName.Length > 90)
-                {
-                    throw new ValidationException(ValidationRules.MaxLength, "resourceGroupName", 90);
-                }
-                if (resourceGroupName.Length < 1)
-                {
-                    throw new ValidationException(ValidationRules.MinLength, "resourceGroupName", 1);
-                }
-                if (!System.Text.RegularExpressions.Regex.IsMatch(resourceGroupName, "^[-\\w\\._\\(\\)]+$"))
-                {
-                    throw new ValidationException(ValidationRules.Pattern, "resourceGroupName", "^[-\\w\\._\\(\\)]+$");
-                }
             }
             if (ruleName == null)
             {

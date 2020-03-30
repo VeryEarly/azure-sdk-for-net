@@ -21,7 +21,7 @@ namespace Microsoft.Azure.Management.Monitor.Models
     /// The autoscale setting resource.
     /// </summary>
     [Rest.Serialization.JsonTransformation]
-    public partial class AutoscaleSettingResource : TrackedResource
+    public partial class AutoscaleSettingResource : Resource
     {
         /// <summary>
         /// Initializes a new instance of the AutoscaleSettingResource class.
@@ -34,18 +34,14 @@ namespace Microsoft.Azure.Management.Monitor.Models
         /// <summary>
         /// Initializes a new instance of the AutoscaleSettingResource class.
         /// </summary>
-        /// <param name="location">The geo-location where the resource
-        /// lives</param>
+        /// <param name="location">Resource location</param>
         /// <param name="profiles">the collection of automatic scaling profiles
         /// that specify different scaling parameters for different time
         /// periods. A maximum of 20 profiles can be specified.</param>
-        /// <param name="id">Fully qualified resource Id for the resource. Ex -
-        /// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}</param>
-        /// <param name="name">The name of the resource</param>
-        /// <param name="type">The type of the resource. Ex-
-        /// Microsoft.Compute/virtualMachines or
-        /// Microsoft.Storage/storageAccounts.</param>
-        /// <param name="tags">Resource tags.</param>
+        /// <param name="id">Azure resource Id</param>
+        /// <param name="name">Azure resource name</param>
+        /// <param name="type">Azure resource type</param>
+        /// <param name="tags">Resource tags</param>
         /// <param name="notifications">the collection of
         /// notifications.</param>
         /// <param name="enabled">the enabled flag. Specifies whether automatic

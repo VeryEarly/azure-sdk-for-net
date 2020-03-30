@@ -21,7 +21,7 @@ namespace Microsoft.Azure.Management.Monitor.Models
     /// The log profile resource.
     /// </summary>
     [Rest.Serialization.JsonTransformation]
-    public partial class LogProfileResource : TrackedResource
+    public partial class LogProfileResource : Resource
     {
         /// <summary>
         /// Initializes a new instance of the LogProfileResource class.
@@ -34,8 +34,7 @@ namespace Microsoft.Azure.Management.Monitor.Models
         /// <summary>
         /// Initializes a new instance of the LogProfileResource class.
         /// </summary>
-        /// <param name="location">The geo-location where the resource
-        /// lives</param>
+        /// <param name="location">Resource location</param>
         /// <param name="locations">List of regions for which Activity Log
         /// events should be stored or streamed. It is a comma separated list
         /// of valid ARM locations including the 'global' location.</param>
@@ -44,13 +43,10 @@ namespace Microsoft.Azure.Management.Monitor.Models
         /// are: 'Write', 'Delete', and/or 'Action.'</param>
         /// <param name="retentionPolicy">the retention policy for the events
         /// in the log.</param>
-        /// <param name="id">Fully qualified resource Id for the resource. Ex -
-        /// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}</param>
-        /// <param name="name">The name of the resource</param>
-        /// <param name="type">The type of the resource. Ex-
-        /// Microsoft.Compute/virtualMachines or
-        /// Microsoft.Storage/storageAccounts.</param>
-        /// <param name="tags">Resource tags.</param>
+        /// <param name="id">Azure resource Id</param>
+        /// <param name="name">Azure resource name</param>
+        /// <param name="type">Azure resource type</param>
+        /// <param name="tags">Resource tags</param>
         /// <param name="storageAccountId">the resource id of the storage
         /// account to which you would like to send the Activity Log.</param>
         /// <param name="serviceBusRuleId">The service bus rule ID of the

@@ -21,7 +21,7 @@ namespace Microsoft.Azure.Management.Monitor.Models
     /// An activity log alert resource.
     /// </summary>
     [Rest.Serialization.JsonTransformation]
-    public partial class ActivityLogAlertResource : TrackedResource
+    public partial class ActivityLogAlertResource : Resource
     {
         /// <summary>
         /// Initializes a new instance of the ActivityLogAlertResource class.
@@ -34,8 +34,7 @@ namespace Microsoft.Azure.Management.Monitor.Models
         /// <summary>
         /// Initializes a new instance of the ActivityLogAlertResource class.
         /// </summary>
-        /// <param name="location">The geo-location where the resource
-        /// lives</param>
+        /// <param name="location">Resource location</param>
         /// <param name="scopes">A list of resourceIds that will be used as
         /// prefixes. The alert will only apply to activityLogs with
         /// resourceIds that fall under one of these prefixes. This list must
@@ -44,13 +43,10 @@ namespace Microsoft.Azure.Management.Monitor.Models
         /// activate.</param>
         /// <param name="actions">The actions that will activate when the
         /// condition is met.</param>
-        /// <param name="id">Fully qualified resource Id for the resource. Ex -
-        /// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}</param>
-        /// <param name="name">The name of the resource</param>
-        /// <param name="type">The type of the resource. Ex-
-        /// Microsoft.Compute/virtualMachines or
-        /// Microsoft.Storage/storageAccounts.</param>
-        /// <param name="tags">Resource tags.</param>
+        /// <param name="id">Azure resource Id</param>
+        /// <param name="name">Azure resource name</param>
+        /// <param name="type">Azure resource type</param>
+        /// <param name="tags">Resource tags</param>
         /// <param name="enabled">Indicates whether this activity log alert is
         /// enabled. If an activity log alert is not enabled, then none of its
         /// actions will be activated.</param>

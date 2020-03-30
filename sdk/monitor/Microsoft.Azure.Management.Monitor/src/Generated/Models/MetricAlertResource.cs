@@ -21,7 +21,7 @@ namespace Microsoft.Azure.Management.Monitor.Models
     /// The metric alert resource.
     /// </summary>
     [Rest.Serialization.JsonTransformation]
-    public partial class MetricAlertResource : TrackedResource
+    public partial class MetricAlertResource : Resource
     {
         /// <summary>
         /// Initializes a new instance of the MetricAlertResource class.
@@ -34,8 +34,7 @@ namespace Microsoft.Azure.Management.Monitor.Models
         /// <summary>
         /// Initializes a new instance of the MetricAlertResource class.
         /// </summary>
-        /// <param name="location">The geo-location where the resource
-        /// lives</param>
+        /// <param name="location">Resource location</param>
         /// <param name="description">the description of the metric alert that
         /// will be included in the alert email.</param>
         /// <param name="severity">Alert severity {0, 1, 2, 3, 4}</param>
@@ -48,13 +47,10 @@ namespace Microsoft.Azure.Management.Monitor.Models
         /// threshold.</param>
         /// <param name="criteria">defines the specific alert criteria
         /// information.</param>
-        /// <param name="id">Fully qualified resource Id for the resource. Ex -
-        /// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}</param>
-        /// <param name="name">The name of the resource</param>
-        /// <param name="type">The type of the resource. Ex-
-        /// Microsoft.Compute/virtualMachines or
-        /// Microsoft.Storage/storageAccounts.</param>
-        /// <param name="tags">Resource tags.</param>
+        /// <param name="id">Azure resource Id</param>
+        /// <param name="name">Azure resource name</param>
+        /// <param name="type">Azure resource type</param>
+        /// <param name="tags">Resource tags</param>
         /// <param name="scopes">the list of resource id's that this metric
         /// alert is scoped to.</param>
         /// <param name="targetResourceType">the resource type of the target

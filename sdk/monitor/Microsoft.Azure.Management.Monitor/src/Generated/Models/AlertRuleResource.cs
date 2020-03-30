@@ -21,7 +21,7 @@ namespace Microsoft.Azure.Management.Monitor.Models
     /// The alert rule resource.
     /// </summary>
     [Rest.Serialization.JsonTransformation]
-    public partial class AlertRuleResource : TrackedResource
+    public partial class AlertRuleResource : Resource
     {
         /// <summary>
         /// Initializes a new instance of the AlertRuleResource class.
@@ -34,21 +34,17 @@ namespace Microsoft.Azure.Management.Monitor.Models
         /// <summary>
         /// Initializes a new instance of the AlertRuleResource class.
         /// </summary>
-        /// <param name="location">The geo-location where the resource
-        /// lives</param>
+        /// <param name="location">Resource location</param>
         /// <param name="alertRuleResourceName">the name of the alert
         /// rule.</param>
         /// <param name="isEnabled">the flag that indicates whether the alert
         /// rule is enabled.</param>
         /// <param name="condition">the condition that results in the alert
         /// rule being activated.</param>
-        /// <param name="id">Fully qualified resource Id for the resource. Ex -
-        /// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}</param>
-        /// <param name="name">The name of the resource</param>
-        /// <param name="type">The type of the resource. Ex-
-        /// Microsoft.Compute/virtualMachines or
-        /// Microsoft.Storage/storageAccounts.</param>
-        /// <param name="tags">Resource tags.</param>
+        /// <param name="id">Azure resource Id</param>
+        /// <param name="name">Azure resource name</param>
+        /// <param name="type">Azure resource type</param>
+        /// <param name="tags">Resource tags</param>
         /// <param name="description">the description of the alert rule that
         /// will be included in the alert email.</param>
         /// <param name="actions">the array of actions that are performed when
