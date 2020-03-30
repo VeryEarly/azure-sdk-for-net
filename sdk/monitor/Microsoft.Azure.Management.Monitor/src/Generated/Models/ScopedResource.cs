@@ -11,7 +11,6 @@
 namespace Microsoft.Azure.Management.Monitor.Models
 {
     using Microsoft.Rest;
-    using Microsoft.Rest.Azure;
     using Microsoft.Rest.Serialization;
     using Newtonsoft.Json;
     using System.Linq;
@@ -20,7 +19,7 @@ namespace Microsoft.Azure.Management.Monitor.Models
     /// A private link scoped resource
     /// </summary>
     [Rest.Serialization.JsonTransformation]
-    public partial class ScopedResource : IResource
+    public partial class ScopedResource : ProxyResource
     {
         /// <summary>
         /// Initializes a new instance of the ScopedResource class.
@@ -33,11 +32,15 @@ namespace Microsoft.Azure.Management.Monitor.Models
         /// <summary>
         /// Initializes a new instance of the ScopedResource class.
         /// </summary>
+        /// <param name="id">Azure resource Id</param>
+        /// <param name="name">Azure resource name</param>
+        /// <param name="type">Azure resource type</param>
         /// <param name="linkedResourceId">The resource id of the scoped Azure
         /// monitor resource.</param>
         /// <param name="provisioningState">State of the private endpoint
         /// connection.</param>
-        public ScopedResource(string linkedResourceId = default(string), string provisioningState = default(string))
+        public ScopedResource(string id = default(string), string name = default(string), string type = default(string), string linkedResourceId = default(string), string provisioningState = default(string))
+            : base(id, name, type)
         {
             LinkedResourceId = linkedResourceId;
             ProvisioningState = provisioningState;
