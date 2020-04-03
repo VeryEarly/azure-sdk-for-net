@@ -30,7 +30,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group to get. The name is case insensitive.
+            /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
             /// Name of the Log Analytics Workspace that will contain the linkedServices
@@ -54,7 +54,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group to get. The name is case insensitive.
+            /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
             /// Name of the Log Analytics Workspace that will contain the linkedServices
@@ -84,7 +84,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group to get. The name is case insensitive.
+            /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
             /// Name of the Log Analytics Workspace that contains the linkedServices
@@ -105,7 +105,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group to get. The name is case insensitive.
+            /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
             /// Name of the Log Analytics Workspace that contains the linkedServices
@@ -129,7 +129,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group to get. The name is case insensitive.
+            /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
             /// Name of the Log Analytics Workspace that contains the linkedServices
@@ -150,7 +150,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group to get. The name is case insensitive.
+            /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
             /// Name of the Log Analytics Workspace that contains the linkedServices
@@ -177,7 +177,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group to get. The name is case insensitive.
+            /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
             /// Name of the Log Analytics Workspace that contains the linked services.
@@ -194,7 +194,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The operations group for this extension method.
             /// </param>
             /// <param name='resourceGroupName'>
-            /// The name of the resource group to get. The name is case insensitive.
+            /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
             /// Name of the Log Analytics Workspace that contains the linked services.

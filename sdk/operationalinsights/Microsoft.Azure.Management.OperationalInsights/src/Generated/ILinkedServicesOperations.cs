@@ -27,8 +27,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
         /// Create or update a linked service.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group to get. The name is case
-        /// insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </param>
         /// <param name='workspaceName'>
         /// Name of the Log Analytics Workspace that will contain the
@@ -60,8 +59,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
         /// Deletes a linked service instance.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group to get. The name is case
-        /// insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </param>
         /// <param name='workspaceName'>
         /// Name of the Log Analytics Workspace that contains the
@@ -87,8 +85,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
         /// Gets a linked service instance.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group to get. The name is case
-        /// insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </param>
         /// <param name='workspaceName'>
         /// Name of the Log Analytics Workspace that contains the
@@ -117,8 +114,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
         /// Gets the linked services instances in a workspace.
         /// </summary>
         /// <param name='resourceGroupName'>
-        /// The name of the resource group to get. The name is case
-        /// insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </param>
         /// <param name='workspaceName'>
         /// Name of the Log Analytics Workspace that contains the linked

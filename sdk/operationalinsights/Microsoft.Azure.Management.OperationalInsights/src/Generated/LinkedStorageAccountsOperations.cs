@@ -23,12 +23,12 @@ namespace Microsoft.Azure.Management.OperationalInsights
     using System.Threading.Tasks;
 
     /// <summary>
-    /// LinkedServicesOperations operations.
+    /// LinkedStorageAccountsOperations operations.
     /// </summary>
-    internal partial class LinkedServicesOperations : IServiceOperations<OperationalInsightsManagementClient>, ILinkedServicesOperations
+    internal partial class LinkedStorageAccountsOperations : IServiceOperations<OperationalInsightsManagementClient>, ILinkedStorageAccountsOperations
     {
         /// <summary>
-        /// Initializes a new instance of the LinkedServicesOperations class.
+        /// Initializes a new instance of the LinkedStorageAccountsOperations class.
         /// </summary>
         /// <param name='client'>
         /// Reference to the service client.
@@ -36,7 +36,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        internal LinkedServicesOperations(OperationalInsightsManagementClient client)
+        internal LinkedStorageAccountsOperations(OperationalInsightsManagementClient client)
         {
             if (client == null)
             {
@@ -51,20 +51,21 @@ namespace Microsoft.Azure.Management.OperationalInsights
         public OperationalInsightsManagementClient Client { get; private set; }
 
         /// <summary>
-        /// Create or update a linked service.
+        /// Create or Update a link relation between current workspace and a group of
+        /// storage accounts of a specific data source type.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the resource group. The name is case insensitive.
         /// </param>
         /// <param name='workspaceName'>
-        /// Name of the Log Analytics Workspace that will contain the linkedServices
-        /// resource
+        /// Name of the Log Analytics Workspace that will contain the resource.
         /// </param>
-        /// <param name='linkedServiceName'>
-        /// Name of the linkedServices resource
+        /// <param name='dataSourceType'>
+        /// Linked storage accounts type. Possible values include: 'CustomLogs',
+        /// 'AzureWatson'
         /// </param>
-        /// <param name='parameters'>
-        /// The parameters required to create or update a linked service.
+        /// <param name='storageAccountIds'>
+        /// Linked storage accounts resources ids.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -87,7 +88,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<LinkedService>> CreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, string workspaceName, string linkedServiceName, LinkedService parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<LinkedStorageAccountsResource>> CreateOrUpdateWithHttpMessagesAsync(string resourceGroupName, string workspaceName, DataSourceType dataSourceType, IList<string> storageAccountIds = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (resourceGroupName == null)
             {
@@ -112,14 +113,6 @@ namespace Microsoft.Azure.Management.OperationalInsights
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "workspaceName");
             }
-            if (linkedServiceName == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "linkedServiceName");
-            }
-            if (parameters == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "parameters");
-            }
             if (Client.SubscriptionId == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "this.Client.SubscriptionId");
@@ -142,6 +135,11 @@ namespace Microsoft.Azure.Management.OperationalInsights
                     throw new ValidationException(ValidationRules.MinLength, "Client.ApiVersion", 1);
                 }
             }
+            LinkedStorageAccountsResource parameters = new LinkedStorageAccountsResource();
+            if (storageAccountIds != null)
+            {
+                parameters.StorageAccountIds = storageAccountIds;
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -151,17 +149,17 @@ namespace Microsoft.Azure.Management.OperationalInsights
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("resourceGroupName", resourceGroupName);
                 tracingParameters.Add("workspaceName", workspaceName);
-                tracingParameters.Add("linkedServiceName", linkedServiceName);
+                tracingParameters.Add("dataSourceType", dataSourceType);
                 tracingParameters.Add("parameters", parameters);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "CreateOrUpdate", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedServices/{linkedServiceName}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}").ToString();
             _url = _url.Replace("{resourceGroupName}", System.Uri.EscapeDataString(resourceGroupName));
             _url = _url.Replace("{workspaceName}", System.Uri.EscapeDataString(workspaceName));
-            _url = _url.Replace("{linkedServiceName}", System.Uri.EscapeDataString(linkedServiceName));
+            _url = _url.Replace("{dataSourceType}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dataSourceType, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{subscriptionId}", System.Uri.EscapeDataString(Client.SubscriptionId));
             List<string> _queryParameters = new List<string>();
             if (Client.ApiVersion != null)
@@ -232,7 +230,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             HttpStatusCode _statusCode = _httpResponse.StatusCode;
             cancellationToken.ThrowIfCancellationRequested();
             string _responseContent = null;
-            if ((int)_statusCode != 200 && (int)_statusCode != 201)
+            if ((int)_statusCode != 200)
             {
                 var ex = new CloudException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
                 try
@@ -267,7 +265,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
                 throw ex;
             }
             // Create Result
-            var _result = new AzureOperationResponse<LinkedService>();
+            var _result = new AzureOperationResponse<LinkedStorageAccountsResource>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -280,25 +278,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<LinkedService>(_responseContent, Client.DeserializationSettings);
-                }
-                catch (JsonException ex)
-                {
-                    _httpRequest.Dispose();
-                    if (_httpResponse != null)
-                    {
-                        _httpResponse.Dispose();
-                    }
-                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
-                }
-            }
-            // Deserialize Response
-            if ((int)_statusCode == 201)
-            {
-                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
-                try
-                {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<LinkedService>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<LinkedStorageAccountsResource>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -318,17 +298,18 @@ namespace Microsoft.Azure.Management.OperationalInsights
         }
 
         /// <summary>
-        /// Deletes a linked service instance.
+        /// Deletes all linked storage accounts of a specific data source type
+        /// associated with the specified workspace.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the resource group. The name is case insensitive.
         /// </param>
         /// <param name='workspaceName'>
-        /// Name of the Log Analytics Workspace that contains the linkedServices
-        /// resource
+        /// Name of the Log Analytics Workspace that will contain the resource.
         /// </param>
-        /// <param name='linkedServiceName'>
-        /// Name of the linked service.
+        /// <param name='dataSourceType'>
+        /// Linked storage accounts type. Possible values include: 'CustomLogs',
+        /// 'AzureWatson'
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -348,7 +329,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse> DeleteWithHttpMessagesAsync(string resourceGroupName, string workspaceName, string linkedServiceName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse> DeleteWithHttpMessagesAsync(string resourceGroupName, string workspaceName, DataSourceType dataSourceType, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (resourceGroupName == null)
             {
@@ -372,10 +353,6 @@ namespace Microsoft.Azure.Management.OperationalInsights
             if (workspaceName == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "workspaceName");
-            }
-            if (linkedServiceName == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "linkedServiceName");
             }
             if (Client.ApiVersion == null)
             {
@@ -408,16 +385,16 @@ namespace Microsoft.Azure.Management.OperationalInsights
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("resourceGroupName", resourceGroupName);
                 tracingParameters.Add("workspaceName", workspaceName);
-                tracingParameters.Add("linkedServiceName", linkedServiceName);
+                tracingParameters.Add("dataSourceType", dataSourceType);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Delete", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedServices/{linkedServiceName}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}").ToString();
             _url = _url.Replace("{resourceGroupName}", System.Uri.EscapeDataString(resourceGroupName));
             _url = _url.Replace("{workspaceName}", System.Uri.EscapeDataString(workspaceName));
-            _url = _url.Replace("{linkedServiceName}", System.Uri.EscapeDataString(linkedServiceName));
+            _url = _url.Replace("{dataSourceType}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dataSourceType, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{subscriptionId}", System.Uri.EscapeDataString(Client.SubscriptionId));
             List<string> _queryParameters = new List<string>();
             if (Client.ApiVersion != null)
@@ -482,7 +459,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             HttpStatusCode _statusCode = _httpResponse.StatusCode;
             cancellationToken.ThrowIfCancellationRequested();
             string _responseContent = null;
-            if ((int)_statusCode != 200 && (int)_statusCode != 204)
+            if ((int)_statusCode != 200)
             {
                 var ex = new CloudException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
                 try
@@ -532,17 +509,18 @@ namespace Microsoft.Azure.Management.OperationalInsights
         }
 
         /// <summary>
-        /// Gets a linked service instance.
+        /// Gets all linked storage account of a specific data source type associated
+        /// with the specified workspace.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the resource group. The name is case insensitive.
         /// </param>
         /// <param name='workspaceName'>
-        /// Name of the Log Analytics Workspace that contains the linkedServices
-        /// resource
+        /// Name of the Log Analytics Workspace that will contain the resource.
         /// </param>
-        /// <param name='linkedServiceName'>
-        /// Name of the linked service.
+        /// <param name='dataSourceType'>
+        /// Linked storage accounts type. Possible values include: 'CustomLogs',
+        /// 'AzureWatson'
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -565,7 +543,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<LinkedService>> GetWithHttpMessagesAsync(string resourceGroupName, string workspaceName, string linkedServiceName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<LinkedStorageAccountsResource>> GetWithHttpMessagesAsync(string resourceGroupName, string workspaceName, DataSourceType dataSourceType, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (resourceGroupName == null)
             {
@@ -589,10 +567,6 @@ namespace Microsoft.Azure.Management.OperationalInsights
             if (workspaceName == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "workspaceName");
-            }
-            if (linkedServiceName == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "linkedServiceName");
             }
             if (Client.ApiVersion == null)
             {
@@ -625,16 +599,16 @@ namespace Microsoft.Azure.Management.OperationalInsights
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("resourceGroupName", resourceGroupName);
                 tracingParameters.Add("workspaceName", workspaceName);
-                tracingParameters.Add("linkedServiceName", linkedServiceName);
+                tracingParameters.Add("dataSourceType", dataSourceType);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "Get", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedServices/{linkedServiceName}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}").ToString();
             _url = _url.Replace("{resourceGroupName}", System.Uri.EscapeDataString(resourceGroupName));
             _url = _url.Replace("{workspaceName}", System.Uri.EscapeDataString(workspaceName));
-            _url = _url.Replace("{linkedServiceName}", System.Uri.EscapeDataString(linkedServiceName));
+            _url = _url.Replace("{dataSourceType}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dataSourceType, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{subscriptionId}", System.Uri.EscapeDataString(Client.SubscriptionId));
             List<string> _queryParameters = new List<string>();
             if (Client.ApiVersion != null)
@@ -734,7 +708,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
                 throw ex;
             }
             // Create Result
-            var _result = new AzureOperationResponse<LinkedService>();
+            var _result = new AzureOperationResponse<LinkedStorageAccountsResource>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -747,7 +721,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<LinkedService>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<LinkedStorageAccountsResource>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -767,13 +741,14 @@ namespace Microsoft.Azure.Management.OperationalInsights
         }
 
         /// <summary>
-        /// Gets the linked services instances in a workspace.
+        /// Gets all linked storage accounts associated with the specified workspace,
+        /// storage accounts will be sorted by their data source type.
         /// </summary>
         /// <param name='resourceGroupName'>
         /// The name of the resource group. The name is case insensitive.
         /// </param>
         /// <param name='workspaceName'>
-        /// Name of the Log Analytics Workspace that contains the linked services.
+        /// Name of the Log Analytics Workspace that will contain the resource.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -796,8 +771,19 @@ namespace Microsoft.Azure.Management.OperationalInsights
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<AzureOperationResponse<IEnumerable<LinkedService>>> ListByWorkspaceWithHttpMessagesAsync(string resourceGroupName, string workspaceName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<AzureOperationResponse<IEnumerable<LinkedStorageAccountsResource>>> ListByWorkspaceWithHttpMessagesAsync(string resourceGroupName, string workspaceName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (Client.SubscriptionId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "this.Client.SubscriptionId");
+            }
+            if (Client.SubscriptionId != null)
+            {
+                if (Client.SubscriptionId.Length < 1)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "Client.SubscriptionId", 1);
+                }
+            }
             if (resourceGroupName == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "resourceGroupName");
@@ -817,10 +803,6 @@ namespace Microsoft.Azure.Management.OperationalInsights
                     throw new ValidationException(ValidationRules.Pattern, "resourceGroupName", "^[-\\w\\._\\(\\)]+$");
                 }
             }
-            if (workspaceName == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "workspaceName");
-            }
             if (Client.ApiVersion == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "this.Client.ApiVersion");
@@ -832,16 +814,9 @@ namespace Microsoft.Azure.Management.OperationalInsights
                     throw new ValidationException(ValidationRules.MinLength, "Client.ApiVersion", 1);
                 }
             }
-            if (Client.SubscriptionId == null)
+            if (workspaceName == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "this.Client.SubscriptionId");
-            }
-            if (Client.SubscriptionId != null)
-            {
-                if (Client.SubscriptionId.Length < 1)
-                {
-                    throw new ValidationException(ValidationRules.MinLength, "Client.SubscriptionId", 1);
-                }
+                throw new ValidationException(ValidationRules.CannotBeNull, "workspaceName");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -857,10 +832,10 @@ namespace Microsoft.Azure.Management.OperationalInsights
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedServices").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts").ToString();
+            _url = _url.Replace("{subscriptionId}", System.Uri.EscapeDataString(Client.SubscriptionId));
             _url = _url.Replace("{resourceGroupName}", System.Uri.EscapeDataString(resourceGroupName));
             _url = _url.Replace("{workspaceName}", System.Uri.EscapeDataString(workspaceName));
-            _url = _url.Replace("{subscriptionId}", System.Uri.EscapeDataString(Client.SubscriptionId));
             List<string> _queryParameters = new List<string>();
             if (Client.ApiVersion != null)
             {
@@ -959,7 +934,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
                 throw ex;
             }
             // Create Result
-            var _result = new AzureOperationResponse<IEnumerable<LinkedService>>();
+            var _result = new AzureOperationResponse<IEnumerable<LinkedStorageAccountsResource>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             if (_httpResponse.Headers.Contains("x-ms-request-id"))
@@ -972,7 +947,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<LinkedService>>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Page<LinkedStorageAccountsResource>>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

@@ -17,23 +17,23 @@ namespace Microsoft.Azure.Management.OperationalInsights.Models
     /// <summary>
     /// The SKU (tier) of a workspace.
     /// </summary>
-    public partial class Sku
+    public partial class WorkspaceSku
     {
         /// <summary>
-        /// Initializes a new instance of the Sku class.
+        /// Initializes a new instance of the WorkspaceSku class.
         /// </summary>
-        public Sku()
+        public WorkspaceSku()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the Sku class.
+        /// Initializes a new instance of the WorkspaceSku class.
         /// </summary>
         /// <param name="name">The name of the SKU. Possible values include:
         /// 'Free', 'Standard', 'Premium', 'PerNode', 'PerGB2018',
-        /// 'Standalone'</param>
-        public Sku(string name)
+        /// 'Standalone', 'CapacityReservation'</param>
+        public WorkspaceSku(string name)
         {
             Name = name;
             CustomInit();
@@ -46,7 +46,8 @@ namespace Microsoft.Azure.Management.OperationalInsights.Models
 
         /// <summary>
         /// Gets or sets the name of the SKU. Possible values include: 'Free',
-        /// 'Standard', 'Premium', 'PerNode', 'PerGB2018', 'Standalone'
+        /// 'Standard', 'Premium', 'PerNode', 'PerGB2018', 'Standalone',
+        /// 'CapacityReservation'
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
