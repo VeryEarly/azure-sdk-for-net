@@ -31,7 +31,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
         /// The name of the resource group. The name is case insensitive.
         /// </param>
         /// <param name='workspaceName'>
-        /// Name of the Log Analytics Workspace that will contain the resource.
+        /// The name of the workspace.
         /// </param>
         /// <param name='dataSourceType'>
         /// Linked storage accounts type. Possible values include:
@@ -64,7 +64,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
         /// The name of the resource group. The name is case insensitive.
         /// </param>
         /// <param name='workspaceName'>
-        /// Name of the Log Analytics Workspace that will contain the resource.
+        /// The name of the workspace.
         /// </param>
         /// <param name='dataSourceType'>
         /// Linked storage accounts type. Possible values include:
@@ -91,7 +91,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
         /// The name of the resource group. The name is case insensitive.
         /// </param>
         /// <param name='workspaceName'>
-        /// Name of the Log Analytics Workspace that will contain the resource.
+        /// The name of the workspace.
         /// </param>
         /// <param name='dataSourceType'>
         /// Linked storage accounts type. Possible values include:
@@ -122,7 +122,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
         /// The name of the resource group. The name is case insensitive.
         /// </param>
         /// <param name='workspaceName'>
-        /// Name of the Log Analytics Workspace that will contain the resource.
+        /// The name of the workspace.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

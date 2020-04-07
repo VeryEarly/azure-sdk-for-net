@@ -33,7 +33,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
-            /// The Log Analytics workspace name.
+            /// The name of the workspace.
             /// </param>
             public static IEnumerable<DataExport> ListByWorkspace(this IDataExportsOperations operations, string resourceGroupName, string workspaceName)
             {
@@ -50,7 +50,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
-            /// The Log Analytics workspace name.
+            /// The name of the workspace.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -73,7 +73,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
-            /// The Log Analytics workspace name.
+            /// The name of the workspace.
             /// </param>
             /// <param name='dataExportName'>
             /// The data export rule name.
@@ -96,7 +96,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
-            /// The Log Analytics workspace name.
+            /// The name of the workspace.
             /// </param>
             /// <param name='dataExportName'>
             /// The data export rule name.
@@ -125,7 +125,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
-            /// The Log Analytics workspace name.
+            /// The name of the workspace.
             /// </param>
             /// <param name='dataExportName'>
             /// The data export rule name.
@@ -145,7 +145,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
-            /// The Log Analytics workspace name.
+            /// The name of the workspace.
             /// </param>
             /// <param name='dataExportName'>
             /// The data export rule name.
@@ -171,7 +171,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
-            /// The Log Analytics workspace name.
+            /// The name of the workspace.
             /// </param>
             /// <param name='dataExportName'>
             /// The data export rule name.
@@ -191,7 +191,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
-            /// The Log Analytics workspace name.
+            /// The name of the workspace.
             /// </param>
             /// <param name='dataExportName'>
             /// The data export rule name.
@@ -214,7 +214,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
-            /// The Log Analytics workspace name.
+            /// The name of the workspace.
             /// </param>
             /// <param name='dataExportName'>
             /// The data export rule name.
@@ -237,7 +237,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
-            /// The Log Analytics workspace name.
+            /// The name of the workspace.
             /// </param>
             /// <param name='dataExportName'>
             /// The data export rule name.

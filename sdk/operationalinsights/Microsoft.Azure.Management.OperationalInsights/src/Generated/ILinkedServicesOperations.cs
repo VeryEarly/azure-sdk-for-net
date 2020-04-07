@@ -30,8 +30,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
         /// The name of the resource group. The name is case insensitive.
         /// </param>
         /// <param name='workspaceName'>
-        /// Name of the Log Analytics Workspace that will contain the
-        /// linkedServices resource
+        /// The name of the workspace.
         /// </param>
         /// <param name='linkedServiceName'>
         /// Name of the linkedServices resource
@@ -62,8 +61,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
         /// The name of the resource group. The name is case insensitive.
         /// </param>
         /// <param name='workspaceName'>
-        /// Name of the Log Analytics Workspace that contains the
-        /// linkedServices resource
+        /// The name of the workspace.
         /// </param>
         /// <param name='linkedServiceName'>
         /// Name of the linked service.
@@ -88,8 +86,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
         /// The name of the resource group. The name is case insensitive.
         /// </param>
         /// <param name='workspaceName'>
-        /// Name of the Log Analytics Workspace that contains the
-        /// linkedServices resource
+        /// The name of the workspace.
         /// </param>
         /// <param name='linkedServiceName'>
         /// Name of the linked service.
@@ -117,8 +114,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
         /// The name of the resource group. The name is case insensitive.
         /// </param>
         /// <param name='workspaceName'>
-        /// Name of the Log Analytics Workspace that contains the linked
-        /// services.
+        /// The name of the workspace.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

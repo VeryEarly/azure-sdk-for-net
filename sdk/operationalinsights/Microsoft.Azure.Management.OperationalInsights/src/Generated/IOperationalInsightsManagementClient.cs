@@ -109,6 +109,16 @@ namespace Microsoft.Azure.Management.OperationalInsights
         IClustersOperations Clusters { get; }
 
         /// <summary>
+        /// Gets the IStorageInsightsOperations.
+        /// </summary>
+        IStorageInsightsOperations StorageInsights { get; }
+
+        /// <summary>
+        /// Gets the ISavedSearchesOperations.
+        /// </summary>
+        ISavedSearchesOperations SavedSearches { get; }
+
+        /// <summary>
         /// Get the status of a long running azure asynchronous operation.
         /// </summary>
         /// <param name='location'>

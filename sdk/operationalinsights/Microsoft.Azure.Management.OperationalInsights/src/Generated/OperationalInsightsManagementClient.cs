@@ -112,6 +112,16 @@ namespace Microsoft.Azure.Management.OperationalInsights
         public virtual IClustersOperations Clusters { get; private set; }
 
         /// <summary>
+        /// Gets the IStorageInsightsOperations.
+        /// </summary>
+        public virtual IStorageInsightsOperations StorageInsights { get; private set; }
+
+        /// <summary>
+        /// Gets the ISavedSearchesOperations.
+        /// </summary>
+        public virtual ISavedSearchesOperations SavedSearches { get; private set; }
+
+        /// <summary>
         /// Initializes a new instance of the OperationalInsightsManagementClient class.
         /// </summary>
         /// <param name='httpClient'>
@@ -359,6 +369,8 @@ namespace Microsoft.Azure.Management.OperationalInsights
             LinkedStorageAccounts = new LinkedStorageAccountsOperations(this);
             Operations = new Operations(this);
             Clusters = new ClustersOperations(this);
+            StorageInsights = new StorageInsightsOperations(this);
+            SavedSearches = new SavedSearchesOperations(this);
             BaseUri = new System.Uri("https://management.azure.com");
             ApiVersion = "2020-03-01-preview";
             AcceptLanguage = "en-US";

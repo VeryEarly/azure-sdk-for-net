@@ -57,7 +57,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
         /// The name of the resource group. The name is case insensitive.
         /// </param>
         /// <param name='workspaceName'>
-        /// Name of the Log Analytics Workspace.
+        /// The name of the workspace.
         /// </param>
         /// <param name='intelligencePackName'>
         /// The name of the intelligence pack to be disabled.
@@ -104,6 +104,21 @@ namespace Microsoft.Azure.Management.OperationalInsights
             if (workspaceName == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "workspaceName");
+            }
+            if (workspaceName != null)
+            {
+                if (workspaceName.Length > 63)
+                {
+                    throw new ValidationException(ValidationRules.MaxLength, "workspaceName", 63);
+                }
+                if (workspaceName.Length < 4)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "workspaceName", 4);
+                }
+                if (!System.Text.RegularExpressions.Regex.IsMatch(workspaceName, "^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$"))
+                {
+                    throw new ValidationException(ValidationRules.Pattern, "workspaceName", "^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$");
+                }
             }
             if (intelligencePackName == null)
             {
@@ -270,7 +285,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
         /// The name of the resource group. The name is case insensitive.
         /// </param>
         /// <param name='workspaceName'>
-        /// Name of the Log Analytics Workspace.
+        /// The name of the workspace.
         /// </param>
         /// <param name='intelligencePackName'>
         /// The name of the intelligence pack to be enabled.
@@ -317,6 +332,21 @@ namespace Microsoft.Azure.Management.OperationalInsights
             if (workspaceName == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "workspaceName");
+            }
+            if (workspaceName != null)
+            {
+                if (workspaceName.Length > 63)
+                {
+                    throw new ValidationException(ValidationRules.MaxLength, "workspaceName", 63);
+                }
+                if (workspaceName.Length < 4)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "workspaceName", 4);
+                }
+                if (!System.Text.RegularExpressions.Regex.IsMatch(workspaceName, "^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$"))
+                {
+                    throw new ValidationException(ValidationRules.Pattern, "workspaceName", "^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$");
+                }
             }
             if (intelligencePackName == null)
             {
@@ -484,7 +514,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
         /// The name of the resource group. The name is case insensitive.
         /// </param>
         /// <param name='workspaceName'>
-        /// Name of the Log Analytics Workspace.
+        /// The name of the workspace.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -531,6 +561,21 @@ namespace Microsoft.Azure.Management.OperationalInsights
             if (workspaceName == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "workspaceName");
+            }
+            if (workspaceName != null)
+            {
+                if (workspaceName.Length > 63)
+                {
+                    throw new ValidationException(ValidationRules.MaxLength, "workspaceName", 63);
+                }
+                if (workspaceName.Length < 4)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "workspaceName", 4);
+                }
+                if (!System.Text.RegularExpressions.Regex.IsMatch(workspaceName, "^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$"))
+                {
+                    throw new ValidationException(ValidationRules.Pattern, "workspaceName", "^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$");
+                }
             }
             if (Client.ApiVersion == null)
             {
@@ -757,6 +802,21 @@ namespace Microsoft.Azure.Management.OperationalInsights
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "workspaceName");
             }
+            if (workspaceName != null)
+            {
+                if (workspaceName.Length > 63)
+                {
+                    throw new ValidationException(ValidationRules.MaxLength, "workspaceName", 63);
+                }
+                if (workspaceName.Length < 4)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "workspaceName", 4);
+                }
+                if (!System.Text.RegularExpressions.Regex.IsMatch(workspaceName, "^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$"))
+                {
+                    throw new ValidationException(ValidationRules.Pattern, "workspaceName", "^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$");
+                }
+            }
             if (Client.ApiVersion == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "this.Client.ApiVersion");
@@ -934,7 +994,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
         /// The name of the resource group. The name is case insensitive.
         /// </param>
         /// <param name='workspaceName'>
-        /// Name of the Log Analytics Workspace.
+        /// The name of the workspace.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -981,6 +1041,21 @@ namespace Microsoft.Azure.Management.OperationalInsights
             if (workspaceName == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "workspaceName");
+            }
+            if (workspaceName != null)
+            {
+                if (workspaceName.Length > 63)
+                {
+                    throw new ValidationException(ValidationRules.MaxLength, "workspaceName", 63);
+                }
+                if (workspaceName.Length < 4)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "workspaceName", 4);
+                }
+                if (!System.Text.RegularExpressions.Regex.IsMatch(workspaceName, "^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$"))
+                {
+                    throw new ValidationException(ValidationRules.Pattern, "workspaceName", "^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$");
+                }
             }
             if (Client.ApiVersion == null)
             {
@@ -1206,6 +1281,21 @@ namespace Microsoft.Azure.Management.OperationalInsights
             if (workspaceName == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "workspaceName");
+            }
+            if (workspaceName != null)
+            {
+                if (workspaceName.Length > 63)
+                {
+                    throw new ValidationException(ValidationRules.MaxLength, "workspaceName", 63);
+                }
+                if (workspaceName.Length < 4)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "workspaceName", 4);
+                }
+                if (!System.Text.RegularExpressions.Regex.IsMatch(workspaceName, "^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$"))
+                {
+                    throw new ValidationException(ValidationRules.Pattern, "workspaceName", "^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$");
+                }
             }
             if (Client.ApiVersion == null)
             {
@@ -1817,7 +1907,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
         /// The resource group name of the workspace.
         /// </param>
         /// <param name='workspaceName'>
-        /// Name of the Log Analytics Workspace.
+        /// The name of the workspace.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -1839,7 +1929,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
         /// The resource group name of the workspace.
         /// </param>
         /// <param name='workspaceName'>
-        /// Name of the Log Analytics Workspace.
+        /// The name of the workspace.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1871,6 +1961,21 @@ namespace Microsoft.Azure.Management.OperationalInsights
             if (workspaceName == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "workspaceName");
+            }
+            if (workspaceName != null)
+            {
+                if (workspaceName.Length > 63)
+                {
+                    throw new ValidationException(ValidationRules.MaxLength, "workspaceName", 63);
+                }
+                if (workspaceName.Length < 4)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "workspaceName", 4);
+                }
+                if (!System.Text.RegularExpressions.Regex.IsMatch(workspaceName, "^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$"))
+                {
+                    throw new ValidationException(ValidationRules.Pattern, "workspaceName", "^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$");
+                }
             }
             if (Client.ApiVersion == null)
             {
@@ -2549,7 +2654,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
         /// The resource group name of the workspace.
         /// </param>
         /// <param name='workspaceName'>
-        /// Name of the Log Analytics Workspace.
+        /// The name of the workspace.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2578,6 +2683,21 @@ namespace Microsoft.Azure.Management.OperationalInsights
             if (workspaceName == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "workspaceName");
+            }
+            if (workspaceName != null)
+            {
+                if (workspaceName.Length > 63)
+                {
+                    throw new ValidationException(ValidationRules.MaxLength, "workspaceName", 63);
+                }
+                if (workspaceName.Length < 4)
+                {
+                    throw new ValidationException(ValidationRules.MinLength, "workspaceName", 4);
+                }
+                if (!System.Text.RegularExpressions.Regex.IsMatch(workspaceName, "^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$"))
+                {
+                    throw new ValidationException(ValidationRules.Pattern, "workspaceName", "^[A-Za-z0-9][A-Za-z0-9-]+[A-Za-z0-9]$");
+                }
             }
             if (Client.ApiVersion == null)
             {

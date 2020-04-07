@@ -34,7 +34,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
-            /// Name of the Log Analytics Workspace that will contain the resource.
+            /// The name of the workspace.
             /// </param>
             /// <param name='dataSourceType'>
             /// Linked storage accounts type. Possible values include: 'CustomLogs',
@@ -59,7 +59,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
-            /// Name of the Log Analytics Workspace that will contain the resource.
+            /// The name of the workspace.
             /// </param>
             /// <param name='dataSourceType'>
             /// Linked storage accounts type. Possible values include: 'CustomLogs',
@@ -90,7 +90,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
-            /// Name of the Log Analytics Workspace that will contain the resource.
+            /// The name of the workspace.
             /// </param>
             /// <param name='dataSourceType'>
             /// Linked storage accounts type. Possible values include: 'CustomLogs',
@@ -112,7 +112,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
-            /// Name of the Log Analytics Workspace that will contain the resource.
+            /// The name of the workspace.
             /// </param>
             /// <param name='dataSourceType'>
             /// Linked storage accounts type. Possible values include: 'CustomLogs',
@@ -137,7 +137,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
-            /// Name of the Log Analytics Workspace that will contain the resource.
+            /// The name of the workspace.
             /// </param>
             /// <param name='dataSourceType'>
             /// Linked storage accounts type. Possible values include: 'CustomLogs',
@@ -159,7 +159,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
-            /// Name of the Log Analytics Workspace that will contain the resource.
+            /// The name of the workspace.
             /// </param>
             /// <param name='dataSourceType'>
             /// Linked storage accounts type. Possible values include: 'CustomLogs',
@@ -187,7 +187,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
-            /// Name of the Log Analytics Workspace that will contain the resource.
+            /// The name of the workspace.
             /// </param>
             public static IEnumerable<LinkedStorageAccountsResource> ListByWorkspace(this ILinkedStorageAccountsOperations operations, string resourceGroupName, string workspaceName)
             {
@@ -205,7 +205,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
-            /// Name of the Log Analytics Workspace that will contain the resource.
+            /// The name of the workspace.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

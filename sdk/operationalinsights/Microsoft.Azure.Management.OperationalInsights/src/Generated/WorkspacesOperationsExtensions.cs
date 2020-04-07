@@ -33,7 +33,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
-            /// Name of the Log Analytics Workspace.
+            /// The name of the workspace.
             /// </param>
             /// <param name='intelligencePackName'>
             /// The name of the intelligence pack to be disabled.
@@ -53,7 +53,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
-            /// Name of the Log Analytics Workspace.
+            /// The name of the workspace.
             /// </param>
             /// <param name='intelligencePackName'>
             /// The name of the intelligence pack to be disabled.
@@ -76,7 +76,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
-            /// Name of the Log Analytics Workspace.
+            /// The name of the workspace.
             /// </param>
             /// <param name='intelligencePackName'>
             /// The name of the intelligence pack to be enabled.
@@ -96,7 +96,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
-            /// Name of the Log Analytics Workspace.
+            /// The name of the workspace.
             /// </param>
             /// <param name='intelligencePackName'>
             /// The name of the intelligence pack to be enabled.
@@ -120,7 +120,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
-            /// Name of the Log Analytics Workspace.
+            /// The name of the workspace.
             /// </param>
             public static IList<IntelligencePack> ListIntelligencePacks(this IWorkspacesOperations operations, string resourceGroupName, string workspaceName)
             {
@@ -138,7 +138,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
-            /// Name of the Log Analytics Workspace.
+            /// The name of the workspace.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -201,7 +201,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
-            /// Name of the Log Analytics Workspace.
+            /// The name of the workspace.
             /// </param>
             public static SharedKeys GetSharedKeys(this IWorkspacesOperations operations, string resourceGroupName, string workspaceName)
             {
@@ -218,7 +218,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The name of the resource group. The name is case insensitive.
             /// </param>
             /// <param name='workspaceName'>
-            /// Name of the Log Analytics Workspace.
+            /// The name of the workspace.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -389,7 +389,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The resource group name of the workspace.
             /// </param>
             /// <param name='workspaceName'>
-            /// Name of the Log Analytics Workspace.
+            /// The name of the workspace.
             /// </param>
             public static void Delete(this IWorkspacesOperations operations, string resourceGroupName, string workspaceName)
             {
@@ -406,7 +406,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The resource group name of the workspace.
             /// </param>
             /// <param name='workspaceName'>
-            /// Name of the Log Analytics Workspace.
+            /// The name of the workspace.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -426,7 +426,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The resource group name of the workspace.
             /// </param>
             /// <param name='workspaceName'>
-            /// Name of the Log Analytics Workspace.
+            /// The name of the workspace.
             /// </param>
             public static Workspace Get(this IWorkspacesOperations operations, string resourceGroupName, string workspaceName)
             {
@@ -443,7 +443,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The resource group name of the workspace.
             /// </param>
             /// <param name='workspaceName'>
-            /// Name of the Log Analytics Workspace.
+            /// The name of the workspace.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -558,7 +558,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The resource group name of the workspace.
             /// </param>
             /// <param name='workspaceName'>
-            /// Name of the Log Analytics Workspace.
+            /// The name of the workspace.
             /// </param>
             public static void BeginDelete(this IWorkspacesOperations operations, string resourceGroupName, string workspaceName)
             {
@@ -575,7 +575,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// The resource group name of the workspace.
             /// </param>
             /// <param name='workspaceName'>
-            /// Name of the Log Analytics Workspace.
+            /// The name of the workspace.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
