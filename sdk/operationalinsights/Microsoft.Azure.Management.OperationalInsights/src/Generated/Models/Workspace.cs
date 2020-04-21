@@ -37,7 +37,8 @@ namespace Microsoft.Azure.Management.OperationalInsights.Models
         /// </summary>
         /// <param name="provisioningState">The provisioning state of the
         /// workspace. Possible values include: 'Creating', 'Succeeded',
-        /// 'Failed', 'Canceled', 'Deleting', 'ProvisioningAccount'</param>
+        /// 'Failed', 'Canceled', 'Deleting', 'ProvisioningAccount',
+        /// 'Updating'</param>
         /// <param name="customerId">This is a read-only property. Represents
         /// the ID associated with the workspace.</param>
         /// <param name="sku">The SKU of the workspace.</param>
@@ -74,7 +75,7 @@ namespace Microsoft.Azure.Management.OperationalInsights.Models
         /// <summary>
         /// Gets or sets the provisioning state of the workspace. Possible
         /// values include: 'Creating', 'Succeeded', 'Failed', 'Canceled',
-        /// 'Deleting', 'ProvisioningAccount'
+        /// 'Deleting', 'ProvisioningAccount', 'Updating'
         /// </summary>
         [JsonProperty(PropertyName = "properties.provisioningState")]
         public string ProvisioningState { get; set; }

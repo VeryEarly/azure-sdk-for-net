@@ -14,10 +14,6 @@ namespace Microsoft.Azure.Management.OperationalInsights
     using Microsoft.Rest.Azure;
     using Models;
     using Newtonsoft.Json;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Threading;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// Operational Insights Client
@@ -84,9 +80,9 @@ namespace Microsoft.Azure.Management.OperationalInsights
         IDataSourcesOperations DataSources { get; }
 
         /// <summary>
-        /// Gets the IWorkspacesOperations.
+        /// Gets the IIntelligencePacksOperations.
         /// </summary>
-        IWorkspacesOperations Workspaces { get; }
+        IIntelligencePacksOperations IntelligencePacks { get; }
 
         /// <summary>
         /// Gets the ILinkedServicesOperations.
@@ -99,9 +95,34 @@ namespace Microsoft.Azure.Management.OperationalInsights
         ILinkedStorageAccountsOperations LinkedStorageAccounts { get; }
 
         /// <summary>
+        /// Gets the IManagementGroupsOperations.
+        /// </summary>
+        IManagementGroupsOperations ManagementGroups { get; }
+
+        /// <summary>
         /// Gets the IOperations.
         /// </summary>
         IOperations Operations { get; }
+
+        /// <summary>
+        /// Gets the IOperationStatusesOperations.
+        /// </summary>
+        IOperationStatusesOperations OperationStatuses { get; }
+
+        /// <summary>
+        /// Gets the ISharedKeysOperations.
+        /// </summary>
+        ISharedKeysOperations SharedKeys { get; }
+
+        /// <summary>
+        /// Gets the IUsagesOperations.
+        /// </summary>
+        IUsagesOperations Usages { get; }
+
+        /// <summary>
+        /// Gets the IWorkspacesOperations.
+        /// </summary>
+        IWorkspacesOperations Workspaces { get; }
 
         /// <summary>
         /// Gets the IClustersOperations.
@@ -109,9 +130,9 @@ namespace Microsoft.Azure.Management.OperationalInsights
         IClustersOperations Clusters { get; }
 
         /// <summary>
-        /// Gets the IStorageInsightsOperations.
+        /// Gets the IStorageInsightConfigsOperations.
         /// </summary>
-        IStorageInsightsOperations StorageInsights { get; }
+        IStorageInsightConfigsOperations StorageInsightConfigs { get; }
 
         /// <summary>
         /// Gets the ISavedSearchesOperations.
@@ -119,21 +140,19 @@ namespace Microsoft.Azure.Management.OperationalInsights
         ISavedSearchesOperations SavedSearches { get; }
 
         /// <summary>
-        /// Get the status of a long running azure asynchronous operation.
+        /// Gets the IGatewaysOperations.
         /// </summary>
-        /// <param name='location'>
-        /// The region name of operation.
-        /// </param>
-        /// <param name='asyncOperationId'>
-        /// The operation Id.
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<AzureOperationResponse<OperationStatus>> GetAsyncOperationsStatusWithHttpMessagesAsync(string location, string asyncOperationId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        IGatewaysOperations Gateways { get; }
+
+        /// <summary>
+        /// Gets the ISchemaOperations.
+        /// </summary>
+        ISchemaOperations Schema { get; }
+
+        /// <summary>
+        /// Gets the IWorkspacePurgeOperations.
+        /// </summary>
+        IWorkspacePurgeOperations WorkspacePurge { get; }
 
     }
 }

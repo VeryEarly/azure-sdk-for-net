@@ -17,9 +17,9 @@ namespace Microsoft.Azure.Management.OperationalInsights
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Extension methods for StorageInsightsOperations.
+    /// Extension methods for StorageInsightConfigsOperations.
     /// </summary>
-    public static partial class StorageInsightsOperationsExtensions
+    public static partial class StorageInsightConfigsOperationsExtensions
     {
             /// <summary>
             /// Create or update a storage insight.
@@ -39,7 +39,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// <param name='parameters'>
             /// The parameters required to create or update a storage insight.
             /// </param>
-            public static StorageInsight CreateOrUpdate(this IStorageInsightsOperations operations, string resourceGroupName, string workspaceName, string storageInsightName, StorageInsight parameters)
+            public static StorageInsight CreateOrUpdate(this IStorageInsightConfigsOperations operations, string resourceGroupName, string workspaceName, string storageInsightName, StorageInsight parameters)
             {
                 return operations.CreateOrUpdateAsync(resourceGroupName, workspaceName, storageInsightName, parameters).GetAwaiter().GetResult();
             }
@@ -65,7 +65,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<StorageInsight> CreateOrUpdateAsync(this IStorageInsightsOperations operations, string resourceGroupName, string workspaceName, string storageInsightName, StorageInsight parameters, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<StorageInsight> CreateOrUpdateAsync(this IStorageInsightConfigsOperations operations, string resourceGroupName, string workspaceName, string storageInsightName, StorageInsight parameters, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.CreateOrUpdateWithHttpMessagesAsync(resourceGroupName, workspaceName, storageInsightName, parameters, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -88,7 +88,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// <param name='storageInsightName'>
             /// Name of the storageInsightsConfigs resource
             /// </param>
-            public static StorageInsight Get(this IStorageInsightsOperations operations, string resourceGroupName, string workspaceName, string storageInsightName)
+            public static StorageInsight Get(this IStorageInsightConfigsOperations operations, string resourceGroupName, string workspaceName, string storageInsightName)
             {
                 return operations.GetAsync(resourceGroupName, workspaceName, storageInsightName).GetAwaiter().GetResult();
             }
@@ -111,7 +111,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<StorageInsight> GetAsync(this IStorageInsightsOperations operations, string resourceGroupName, string workspaceName, string storageInsightName, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<StorageInsight> GetAsync(this IStorageInsightConfigsOperations operations, string resourceGroupName, string workspaceName, string storageInsightName, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetWithHttpMessagesAsync(resourceGroupName, workspaceName, storageInsightName, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -134,7 +134,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// <param name='storageInsightName'>
             /// Name of the storageInsightsConfigs resource
             /// </param>
-            public static void Delete(this IStorageInsightsOperations operations, string resourceGroupName, string workspaceName, string storageInsightName)
+            public static void Delete(this IStorageInsightConfigsOperations operations, string resourceGroupName, string workspaceName, string storageInsightName)
             {
                 operations.DeleteAsync(resourceGroupName, workspaceName, storageInsightName).GetAwaiter().GetResult();
             }
@@ -157,7 +157,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task DeleteAsync(this IStorageInsightsOperations operations, string resourceGroupName, string workspaceName, string storageInsightName, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task DeleteAsync(this IStorageInsightConfigsOperations operations, string resourceGroupName, string workspaceName, string storageInsightName, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.DeleteWithHttpMessagesAsync(resourceGroupName, workspaceName, storageInsightName, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
@@ -174,7 +174,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// <param name='workspaceName'>
             /// The name of the workspace.
             /// </param>
-            public static IPage<StorageInsight> ListByWorkspace(this IStorageInsightsOperations operations, string resourceGroupName, string workspaceName)
+            public static IPage<StorageInsight> ListByWorkspace(this IStorageInsightConfigsOperations operations, string resourceGroupName, string workspaceName)
             {
                 return operations.ListByWorkspaceAsync(resourceGroupName, workspaceName).GetAwaiter().GetResult();
             }
@@ -194,7 +194,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IPage<StorageInsight>> ListByWorkspaceAsync(this IStorageInsightsOperations operations, string resourceGroupName, string workspaceName, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IPage<StorageInsight>> ListByWorkspaceAsync(this IStorageInsightConfigsOperations operations, string resourceGroupName, string workspaceName, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.ListByWorkspaceWithHttpMessagesAsync(resourceGroupName, workspaceName, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -211,7 +211,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// <param name='nextPageLink'>
             /// The NextLink from the previous successful call to List operation.
             /// </param>
-            public static IPage<StorageInsight> ListByWorkspaceNext(this IStorageInsightsOperations operations, string nextPageLink)
+            public static IPage<StorageInsight> ListByWorkspaceNext(this IStorageInsightConfigsOperations operations, string nextPageLink)
             {
                 return operations.ListByWorkspaceNextAsync(nextPageLink).GetAwaiter().GetResult();
             }
@@ -228,7 +228,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IPage<StorageInsight>> ListByWorkspaceNextAsync(this IStorageInsightsOperations operations, string nextPageLink, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IPage<StorageInsight>> ListByWorkspaceNextAsync(this IStorageInsightConfigsOperations operations, string nextPageLink, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.ListByWorkspaceNextWithHttpMessagesAsync(nextPageLink, null, cancellationToken).ConfigureAwait(false))
                 {

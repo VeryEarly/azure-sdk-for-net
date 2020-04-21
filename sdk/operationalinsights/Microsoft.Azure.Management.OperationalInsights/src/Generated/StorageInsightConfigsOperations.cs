@@ -23,12 +23,12 @@ namespace Microsoft.Azure.Management.OperationalInsights
     using System.Threading.Tasks;
 
     /// <summary>
-    /// StorageInsightsOperations operations.
+    /// StorageInsightConfigsOperations operations.
     /// </summary>
-    internal partial class StorageInsightsOperations : IServiceOperations<OperationalInsightsManagementClient>, IStorageInsightsOperations
+    internal partial class StorageInsightConfigsOperations : IServiceOperations<OperationalInsightsManagementClient>, IStorageInsightConfigsOperations
     {
         /// <summary>
-        /// Initializes a new instance of the StorageInsightsOperations class.
+        /// Initializes a new instance of the StorageInsightConfigsOperations class.
         /// </summary>
         /// <param name='client'>
         /// Reference to the service client.
@@ -36,7 +36,7 @@ namespace Microsoft.Azure.Management.OperationalInsights
         /// <exception cref="System.ArgumentNullException">
         /// Thrown when a required parameter is null
         /// </exception>
-        internal StorageInsightsOperations(OperationalInsightsManagementClient client)
+        internal StorageInsightConfigsOperations(OperationalInsightsManagementClient client)
         {
             if (client == null)
             {

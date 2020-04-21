@@ -19,9 +19,9 @@ namespace Microsoft.Azure.Management.OperationalInsights
     using System.Threading.Tasks;
 
     /// <summary>
-    /// StorageInsightsOperations operations.
+    /// StorageInsightConfigsOperations operations.
     /// </summary>
-    public partial interface IStorageInsightsOperations
+    public partial interface IStorageInsightConfigsOperations
     {
         /// <summary>
         /// Create or update a storage insight.

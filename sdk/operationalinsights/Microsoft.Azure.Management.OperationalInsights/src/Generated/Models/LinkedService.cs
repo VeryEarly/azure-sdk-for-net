@@ -41,11 +41,15 @@ namespace Microsoft.Azure.Management.OperationalInsights.Models
         /// <param name="writeAccessResourceId">The resource id of the resource
         /// that will be linked to the workspace. This should be used for
         /// linking resources which require write access</param>
+        /// <param name="provisioningState">The provisioning state of the
+        /// linked service. Possible values include: 'Succeeded', 'Deleting',
+        /// 'ProvisioningAccount', 'Updating'</param>
         /// <param name="tags">Resource tags.</param>
-        public LinkedService(string resourceId = default(string), string writeAccessResourceId = default(string), IDictionary<string, string> tags = default(IDictionary<string, string>))
+        public LinkedService(string resourceId = default(string), string writeAccessResourceId = default(string), string provisioningState = default(string), IDictionary<string, string> tags = default(IDictionary<string, string>))
         {
             ResourceId = resourceId;
             WriteAccessResourceId = writeAccessResourceId;
+            ProvisioningState = provisioningState;
             Tags = tags;
             CustomInit();
         }
@@ -70,6 +74,14 @@ namespace Microsoft.Azure.Management.OperationalInsights.Models
         /// </summary>
         [JsonProperty(PropertyName = "properties.writeAccessResourceId")]
         public string WriteAccessResourceId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the provisioning state of the linked service. Possible
+        /// values include: 'Succeeded', 'Deleting', 'ProvisioningAccount',
+        /// 'Updating'
+        /// </summary>
+        [JsonProperty(PropertyName = "properties.provisioningState")]
+        public string ProvisioningState { get; set; }
 
         /// <summary>
         /// Gets or sets resource tags.

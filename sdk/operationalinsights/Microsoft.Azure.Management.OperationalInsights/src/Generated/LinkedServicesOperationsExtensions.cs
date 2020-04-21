@@ -90,9 +90,9 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// <param name='linkedServiceName'>
             /// Name of the linked service.
             /// </param>
-            public static void Delete(this ILinkedServicesOperations operations, string resourceGroupName, string workspaceName, string linkedServiceName)
+            public static LinkedService Delete(this ILinkedServicesOperations operations, string resourceGroupName, string workspaceName, string linkedServiceName)
             {
-                operations.DeleteAsync(resourceGroupName, workspaceName, linkedServiceName).GetAwaiter().GetResult();
+                return operations.DeleteAsync(resourceGroupName, workspaceName, linkedServiceName).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -113,9 +113,12 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task DeleteAsync(this ILinkedServicesOperations operations, string resourceGroupName, string workspaceName, string linkedServiceName, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<LinkedService> DeleteAsync(this ILinkedServicesOperations operations, string resourceGroupName, string workspaceName, string linkedServiceName, CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.DeleteWithHttpMessagesAsync(resourceGroupName, workspaceName, linkedServiceName, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                using (var _result = await operations.DeleteWithHttpMessagesAsync(resourceGroupName, workspaceName, linkedServiceName, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <summary>
@@ -199,6 +202,104 @@ namespace Microsoft.Azure.Management.OperationalInsights
             public static async Task<IEnumerable<LinkedService>> ListByWorkspaceAsync(this ILinkedServicesOperations operations, string resourceGroupName, string workspaceName, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.ListByWorkspaceWithHttpMessagesAsync(resourceGroupName, workspaceName, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Create or update a linked service.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the resource group. The name is case insensitive.
+            /// </param>
+            /// <param name='workspaceName'>
+            /// The name of the workspace.
+            /// </param>
+            /// <param name='linkedServiceName'>
+            /// Name of the linkedServices resource
+            /// </param>
+            /// <param name='parameters'>
+            /// The parameters required to create or update a linked service.
+            /// </param>
+            public static LinkedService BeginCreateOrUpdate(this ILinkedServicesOperations operations, string resourceGroupName, string workspaceName, string linkedServiceName, LinkedService parameters)
+            {
+                return operations.BeginCreateOrUpdateAsync(resourceGroupName, workspaceName, linkedServiceName, parameters).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Create or update a linked service.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the resource group. The name is case insensitive.
+            /// </param>
+            /// <param name='workspaceName'>
+            /// The name of the workspace.
+            /// </param>
+            /// <param name='linkedServiceName'>
+            /// Name of the linkedServices resource
+            /// </param>
+            /// <param name='parameters'>
+            /// The parameters required to create or update a linked service.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<LinkedService> BeginCreateOrUpdateAsync(this ILinkedServicesOperations operations, string resourceGroupName, string workspaceName, string linkedServiceName, LinkedService parameters, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.BeginCreateOrUpdateWithHttpMessagesAsync(resourceGroupName, workspaceName, linkedServiceName, parameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Deletes a linked service instance.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the resource group. The name is case insensitive.
+            /// </param>
+            /// <param name='workspaceName'>
+            /// The name of the workspace.
+            /// </param>
+            /// <param name='linkedServiceName'>
+            /// Name of the linked service.
+            /// </param>
+            public static LinkedService BeginDelete(this ILinkedServicesOperations operations, string resourceGroupName, string workspaceName, string linkedServiceName)
+            {
+                return operations.BeginDeleteAsync(resourceGroupName, workspaceName, linkedServiceName).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Deletes a linked service instance.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='resourceGroupName'>
+            /// The name of the resource group. The name is case insensitive.
+            /// </param>
+            /// <param name='workspaceName'>
+            /// The name of the workspace.
+            /// </param>
+            /// <param name='linkedServiceName'>
+            /// Name of the linked service.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<LinkedService> BeginDeleteAsync(this ILinkedServicesOperations operations, string resourceGroupName, string workspaceName, string linkedServiceName, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.BeginDeleteWithHttpMessagesAsync(resourceGroupName, workspaceName, linkedServiceName, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

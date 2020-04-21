@@ -17,9 +17,9 @@ namespace Microsoft.Azure.Management.OperationalInsights
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Extension methods for OperationalInsightsManagementClient.
+    /// Extension methods for OperationStatusesOperations.
     /// </summary>
-    public static partial class OperationalInsightsManagementClientExtensions
+    public static partial class OperationStatusesOperationsExtensions
     {
             /// <summary>
             /// Get the status of a long running azure asynchronous operation.
@@ -33,9 +33,9 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// <param name='asyncOperationId'>
             /// The operation Id.
             /// </param>
-            public static OperationStatus GetAsyncOperationsStatus(this IOperationalInsightsManagementClient operations, string location, string asyncOperationId)
+            public static OperationStatus Get(this IOperationStatusesOperations operations, string location, string asyncOperationId)
             {
-                return operations.GetAsyncOperationsStatusAsync(location, asyncOperationId).GetAwaiter().GetResult();
+                return operations.GetAsync(location, asyncOperationId).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -53,9 +53,9 @@ namespace Microsoft.Azure.Management.OperationalInsights
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<OperationStatus> GetAsyncOperationsStatusAsync(this IOperationalInsightsManagementClient operations, string location, string asyncOperationId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<OperationStatus> GetAsync(this IOperationStatusesOperations operations, string location, string asyncOperationId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetAsyncOperationsStatusWithHttpMessagesAsync(location, asyncOperationId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(location, asyncOperationId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

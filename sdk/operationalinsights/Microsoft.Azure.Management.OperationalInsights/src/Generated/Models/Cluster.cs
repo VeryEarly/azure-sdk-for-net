@@ -40,7 +40,8 @@ namespace Microsoft.Azure.Management.OperationalInsights.Models
         /// <param name="clusterId">The ID associated with the cluster.</param>
         /// <param name="provisioningState">The provisioning state of the
         /// cluster. Possible values include: 'Creating', 'Succeeded',
-        /// 'Failed', 'Canceled', 'Deleting', 'ProvisioningAccount'</param>
+        /// 'Failed', 'Canceled', 'Deleting', 'ProvisioningAccount',
+        /// 'Updating'</param>
         /// <param name="keyVaultProperties">The associated key
         /// properties.</param>
         public Cluster(Identity identity = default(Identity), ClusterSku sku = default(ClusterSku), string nextLink = default(string), string clusterId = default(string), string provisioningState = default(string), KeyVaultProperties keyVaultProperties = default(KeyVaultProperties))
@@ -86,7 +87,7 @@ namespace Microsoft.Azure.Management.OperationalInsights.Models
         /// <summary>
         /// Gets the provisioning state of the cluster. Possible values
         /// include: 'Creating', 'Succeeded', 'Failed', 'Canceled', 'Deleting',
-        /// 'ProvisioningAccount'
+        /// 'ProvisioningAccount', 'Updating'
         /// </summary>
         [JsonProperty(PropertyName = "properties.provisioningState")]
         public string ProvisioningState { get; private set; }
