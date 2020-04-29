@@ -87,7 +87,7 @@ namespace Microsoft.Azure.Management.ApplicationInsights.Management
                     throw new ValidationException(ValidationRules.MinLength, "Client.SubscriptionId", 1);
                 }
             }
-            string apiVersion = "2020-02-02-preview";
+            string apiVersion = "2018-05-01-preview";
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -292,7 +292,7 @@ namespace Microsoft.Azure.Management.ApplicationInsights.Management
                     throw new ValidationException(ValidationRules.MinLength, "Client.SubscriptionId", 1);
                 }
             }
-            string apiVersion = "2020-02-02-preview";
+            string apiVersion = "2018-05-01-preview";
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -503,7 +503,7 @@ namespace Microsoft.Azure.Management.ApplicationInsights.Management
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "resourceName");
             }
-            string apiVersion = "2020-02-02-preview";
+            string apiVersion = "2018-05-01-preview";
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -701,7 +701,7 @@ namespace Microsoft.Azure.Management.ApplicationInsights.Management
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "resourceName");
             }
-            string apiVersion = "2020-02-02-preview";
+            string apiVersion = "2018-05-01-preview";
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -931,7 +931,7 @@ namespace Microsoft.Azure.Management.ApplicationInsights.Management
             {
                 insightProperties.Validate();
             }
-            string apiVersion = "2020-02-02-preview";
+            string apiVersion = "2018-05-01-preview";
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -1021,7 +1021,7 @@ namespace Microsoft.Azure.Management.ApplicationInsights.Management
             HttpStatusCode _statusCode = _httpResponse.StatusCode;
             cancellationToken.ThrowIfCancellationRequested();
             string _responseContent = null;
-            if ((int)_statusCode != 200)
+            if ((int)_statusCode != 200 && (int)_statusCode != 201)
             {
                 var ex = new CloudException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
                 try
@@ -1065,6 +1065,24 @@ namespace Microsoft.Azure.Management.ApplicationInsights.Management
             }
             // Deserialize Response
             if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<ApplicationInsightsComponent>(_responseContent, Client.DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            // Deserialize Response
+            if ((int)_statusCode == 201)
             {
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
@@ -1158,7 +1176,7 @@ namespace Microsoft.Azure.Management.ApplicationInsights.Management
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "resourceName");
             }
-            string apiVersion = "2020-02-02-preview";
+            string apiVersion = "2018-05-01-preview";
             TagsResource componentTags = new TagsResource();
             if (tags != null)
             {
@@ -1253,7 +1271,7 @@ namespace Microsoft.Azure.Management.ApplicationInsights.Management
             HttpStatusCode _statusCode = _httpResponse.StatusCode;
             cancellationToken.ThrowIfCancellationRequested();
             string _responseContent = null;
-            if ((int)_statusCode != 200)
+            if ((int)_statusCode != 200 && (int)_statusCode != 201)
             {
                 var ex = new CloudException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
                 try
@@ -1297,6 +1315,24 @@ namespace Microsoft.Azure.Management.ApplicationInsights.Management
             }
             // Deserialize Response
             if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<ApplicationInsightsComponent>(_responseContent, Client.DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            // Deserialize Response
+            if ((int)_statusCode == 201)
             {
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
@@ -1406,7 +1442,7 @@ namespace Microsoft.Azure.Management.ApplicationInsights.Management
             {
                 body.Validate();
             }
-            string apiVersion = "2020-02-02-preview";
+            string apiVersion = "2018-05-01-preview";
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -1637,7 +1673,7 @@ namespace Microsoft.Azure.Management.ApplicationInsights.Management
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "purgeId");
             }
-            string apiVersion = "2020-02-02-preview";
+            string apiVersion = "2018-05-01-preview";
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;

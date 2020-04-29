@@ -43,8 +43,6 @@ namespace Microsoft.Azure.Management.ApplicationInsights.Management.Models
         /// store, java, phone.</param>
         /// <param name="applicationType">Type of application being monitored.
         /// Possible values include: 'web', 'other'</param>
-        /// <param name="workspaceResourceId">ResourceId of the log analytics
-        /// workspace which the data will be ingested to.</param>
         /// <param name="id">Azure resource Id</param>
         /// <param name="name">Azure resource name</param>
         /// <param name="type">Azure resource type</param>
@@ -96,7 +94,7 @@ namespace Microsoft.Azure.Management.ApplicationInsights.Management.Models
         /// <param name="publicNetworkAccessForQuery">The network access type
         /// for accessing Application Insights query. Possible values include:
         /// 'Enabled', 'Disabled'</param>
-        public ApplicationInsightsComponent(string location, string kind, string applicationType, string workspaceResourceId, string id = default(string), string name = default(string), string type = default(string), IDictionary<string, string> tags = default(IDictionary<string, string>), string applicationId = default(string), string appId = default(string), string flowType = default(string), string requestSource = default(string), string instrumentationKey = default(string), System.DateTime? creationDate = default(System.DateTime?), string tenantId = default(string), string hockeyAppId = default(string), string hockeyAppToken = default(string), string provisioningState = default(string), double? samplingPercentage = default(double?), string connectionString = default(string), int? retentionInDays = default(int?), bool? disableIpMasking = default(bool?), bool? immediatePurgeDataOn30Days = default(bool?), IList<PrivateLinkScopedResource> privateLinkScopedResources = default(IList<PrivateLinkScopedResource>), string publicNetworkAccessForIngestion = default(string), string publicNetworkAccessForQuery = default(string))
+        public ApplicationInsightsComponent(string location, string kind, string applicationType, string id = default(string), string name = default(string), string type = default(string), IDictionary<string, string> tags = default(IDictionary<string, string>), string applicationId = default(string), string appId = default(string), string flowType = default(string), string requestSource = default(string), string instrumentationKey = default(string), System.DateTime? creationDate = default(System.DateTime?), string tenantId = default(string), string hockeyAppId = default(string), string hockeyAppToken = default(string), string provisioningState = default(string), double? samplingPercentage = default(double?), string connectionString = default(string), int? retentionInDays = default(int?), bool? disableIpMasking = default(bool?), bool? immediatePurgeDataOn30Days = default(bool?), IList<PrivateLinkScopedResource> privateLinkScopedResources = default(IList<PrivateLinkScopedResource>), string publicNetworkAccessForIngestion = default(string), string publicNetworkAccessForQuery = default(string))
             : base(location, id, name, type, tags)
         {
             Kind = kind;
@@ -116,7 +114,6 @@ namespace Microsoft.Azure.Management.ApplicationInsights.Management.Models
             RetentionInDays = retentionInDays;
             DisableIpMasking = disableIpMasking;
             ImmediatePurgeDataOn30Days = immediatePurgeDataOn30Days;
-            WorkspaceResourceId = workspaceResourceId;
             PrivateLinkScopedResources = privateLinkScopedResources;
             PublicNetworkAccessForIngestion = publicNetworkAccessForIngestion;
             PublicNetworkAccessForQuery = publicNetworkAccessForQuery;
@@ -236,10 +233,10 @@ namespace Microsoft.Azure.Management.ApplicationInsights.Management.Models
         public string ConnectionString { get; private set; }
 
         /// <summary>
-        /// Gets retention period in days.
+        /// Gets or sets retention period in days.
         /// </summary>
         [JsonProperty(PropertyName = "properties.RetentionInDays")]
-        public int? RetentionInDays { get; private set; }
+        public int? RetentionInDays { get; set; }
 
         /// <summary>
         /// Gets or sets disable IP masking.
@@ -252,13 +249,6 @@ namespace Microsoft.Azure.Management.ApplicationInsights.Management.Models
         /// </summary>
         [JsonProperty(PropertyName = "properties.ImmediatePurgeDataOn30Days")]
         public bool? ImmediatePurgeDataOn30Days { get; set; }
-
-        /// <summary>
-        /// Gets or sets resourceId of the log analytics workspace which the
-        /// data will be ingested to.
-        /// </summary>
-        [JsonProperty(PropertyName = "properties.WorkspaceResourceId")]
-        public string WorkspaceResourceId { get; set; }
 
         /// <summary>
         /// Gets list of linked private link scope resources.
@@ -296,10 +286,6 @@ namespace Microsoft.Azure.Management.ApplicationInsights.Management.Models
             if (ApplicationType == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "ApplicationType");
-            }
-            if (WorkspaceResourceId == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "WorkspaceResourceId");
             }
         }
     }
